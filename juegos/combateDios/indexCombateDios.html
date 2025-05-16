@@ -1,0 +1,79 @@
+<!DOCTYPE html> <!-- Define el tipo de documento como HTML5 -->
+<html lang="es"> <!-- Inicia el documento HTML y establece el idioma a español -->
+<head>
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que el sitio sea responsive en dispositivos móviles -->
+    <title>Combate contra Cerbero</title> <!-- Título que aparecerá en la pestaña del navegador -->
+    <link rel="icon" type="image/png" href="../../img/favicon.png"> <!-- Define el favicon (icono de la pestaña del navegador) -->
+    <link rel="stylesheet" href="styles_combate_dios.css"> <!-- Vincula el archivo CSS externo para los estilos -->
+</head>
+<body>
+    <!-- Modal de instrucciones -->
+    <div id="instructions-modal" class="modal">
+        <div class="modal-content">
+            <h2>⚔️ Combate contra Cerbero ⚔️</h2>
+            <ul>
+                <li>► Usa los 4 ataques de Heracles con los botones</li>
+                <li>► Cada ataque tiene diferente daño</li>
+                <li>► La Ambrosía Sagrada cura 20 PS (usos limitados)</li>
+                <li>► Derrota a Cerbero antes de que te elimine</li>
+            </ul>
+            <button id="start-battle-btn">¡Comenzar Combate!</button> <!-- Botón para cerrar el modal y comenzar -->
+        </div>
+    </div>
+
+    <!-- Contenedor principal del juego, oculto al principio hasta que empiece el combate -->
+    <div class="game-container" style="display: none;">
+        <h1>¡Combate contra Cerbero!</h1>
+        
+        <!-- Zona de personajes: jugador y enemigo -->
+        <div class="figuras-container">
+            <!-- Sección de jugador -->
+            <div class="figura player">
+                <h2>Heracles</h2>
+                <!-- Barra de vida de jugador -->
+                <div class="ps-bar">
+                    <div class="ps-fill" id="player-ps"></div> <!-- Se rellena dinámicamente con JS -->
+                </div>
+                <p class="ps-text" id="player-ps-text">1000 / 1000 PS</p> <!-- Texto que muestra los PS actuales -->
+                <img src="images/pixelheracles.png" alt="Heracles"> <!-- Imagen del personaje -->
+            </div>
+            
+            <!-- Sección del enemigo -->
+            <div class="figura enemy"> 
+                <h2>Cerbero</h2>
+                <!-- Barra del enemigo -->
+                <div class="ps-bar">
+                    <div class="ps-fill" id="enemy-ps"></div> <!-- Se rellena dinámicamente con JS -->
+                </div>
+                <p class="ps-text" id="enemy-ps-text">1000 / 1000 PS</p> <!-- Texto que muestra los PS actuales -->
+                <img src="images/cerbero.png" alt="Cerbero"> <!-- Imagen del personaje -->
+            </div> 
+        </div>
+
+        <!-- Zona de botones de ataque y objeto -->
+        <div class="actions-container">
+            <div class="attack-buttons">
+                <!-- Cada botón ejecuta una función con un índice distinto de ataque -->
+                <button onclick="playerAttack(0)">Furia de Nemea</button>
+                <button onclick="playerAttack(1)">Flechas de Hidra</button>
+                <button onclick="playerAttack(2)">Fuerza Olímpica</button>
+                <button onclick="playerAttack(3)">Terremoto colosal</button>
+            </div>
+            <!-- Botón para usar el objeto curativo (Ambrosía) -->
+            <button class="potion-button" onclick="usePotion()">Usar Ambrosía Sagrada <span id="potion-count">(5 restantes)</span></button> <!-- Contador dinámico de pociones -->
+        </div>
+
+        <!-- Zona donde se escriben los eventos del combate -->
+        <div class="battle-log" id="battle-log">
+            <p>¡Comienza el combate!</p> <!-- Mensaje inicial -->
+        </div>
+    </div>
+
+    <!-- Precarga de audio para iOS -->
+    <audio id="audio-preload" src="sounds/golpe.mp3" preload="auto"></audio>
+    
+    <!-- Enlace al archivo JavaScript que contiene la lógica del combate -->
+    <script src="script_combate_dios.js"></script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+@font-face {
+    font-family: "Trajan Pro"; /* Nombre de la fuente personalizada */
+    src: url("../../fonts/trajan-pro-regular.ttf") format("truetype"); /* Ruta a la fuente */
+    font-weight: normal;
+    font-style: normal;
+} 
+
+@font-face {
+    font-family: "Palatino Linotype";
+    src: url("../../fonts/palatino-linotype.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; /* Tipografía principal */
+    background-color: #f4e9d8; /* Color de fondo claro */
+    display: flex; /* Flexbox para centrar contenido */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: flex-start; /* Alinea arriba verticalmente */
+    min-height: 100vh; /* Altura mínima igual al alto de la ventana */
+    padding: 20px; /* Espaciado interior */
+    margin: 0; /* Elimina márgenes por defecto */
+    overflow-x: hidden; /* Oculta desbordamiento horizontal */
+}
+
+/* Modal de instrucciones */
+.modal {
+    position: fixed; /* Posición fija en pantalla */
+    top: 0;
+    left: 0;
+    width: 100%; /* Cubre toda la pantalla */
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro semitransparente */
+    display: flex; /* Centra el contenido del modal */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Se asegura de que esté por encima del resto */
+    animation: fadeIn 0.5s ease-out; /* Animación de entrada */
+}
+
+/* Contenido interno del modal */
+.modal-content {
+    background-color: #f4e9d8;
+    padding: 25px;
+    border-radius: 15px;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(139, 107, 61, 0.6);
+    border: 3px solid #8b6b3d;
+}
+
+/* Título del modal */
+.modal h2 {
+    color: #a0151c;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+/* Lista de instrucciones */
+.modal ul {
+    text-align: left;
+    margin: 25px 0;
+    padding-left: 20px;
+    list-style-type: none;
+}
+
+.modal li {
+    margin-bottom: 12px;
+    color: #5d4a2e;
+    font-size: 18px;
+    position: relative;    
+}
+
+/* Botón para comenzar el juego */
+#start-battle-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s; /* Transición suave */
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+#start-battle-btn:hover {
+    background-color: #3e8e41;
+    transform: scale(1.05); /* Efecto zoom */
+} 
+
+/* Contenedor del juego */
+.game-container {
+    background-color: #fdf8ee;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    margin: 0px auto;
+    text-align: center;
+}
+
+/* Título del juego */
+h1 {
+    color: #5d4a2e;
+    margin-top: 10px;
+    font-size: 1.8rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Subtítulo/leyenda */
+.leyenda {
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    color: #5d4a2e;
+}
+
+/* Botones */
+.opciones {
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* Espacio entre botones */
+    margin: 2rem 0;
+    flex-wrap: wrap; /* Permite que los botones pasen a la siguiente línea si no caben */
+}
+
+/* Estilo de los botones */
+.btn {
+    background: linear-gradient(to bottom, #8B4513, #A0522D); /* Degradado marrón */
+    color: #f4e9d8;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s;
+    min-width: 120px;
+}
+
+/* Efecto hover de los botones */
+.btn:hover {
+    background: linear-gradient(to bottom, #5d4a2e, #8B4513); /* Cambio de color */
+    transform: translateY(-2px); /* Se eleva un poco */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra al pasar el cursor */
+}
+
+/* Resultados */
+.resultado {
+    margin: 1.5rem 0;
+    font-size: 1.2rem;
+    min-height: 100px; /* Altura mínima para evitar que salte el contenido */
+}
+
+/* Resultado de la elección del contrario */
+#eleccion-computadora {
+    color: #a0151c;
+    font-weight: bold;
+}
+
+/* Contador de puntos */
+.puntaje {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+/* Puntos del jugador */
+#puntos-jugador {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+/* Puntos del oponente */
+#puntos-computadora {
+    color: #a0151c;
+    font-weight: bold;
+}
+
+/* Número de ronda */
+#ronda {
+    font-weight: bold;
+    margin-top: 1rem;
+    color: #5d4a2e;
+}
+
+/* Animaciones (copiadas de tu juego) */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}

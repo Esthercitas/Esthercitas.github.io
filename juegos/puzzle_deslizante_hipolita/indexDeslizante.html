@@ -1,0 +1,45 @@
+<!DOCTYPE html> <!-- Define el tipo de documento como HTML5 -->
+<html lang="es"> <!-- Inicia el documento HTML y establece el idioma a español -->
+<head>
+  <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que el sitio sea responsive en dispositivos móviles -->
+  <title>Cinturón de amazona</title> <!-- Título que aparecerá en la pestaña del navegador -->
+  <link rel="stylesheet" href="stylesDeslizante.css"> <!-- Vincula el archivo CSS externo para los estilos -->
+  <link rel="icon" type="image/png" href="../../img/favicon.png"> <!-- Define el favicon (icono de la pestaña del navegador) -->
+</head>
+<body>
+  <!-- Modal de instrucciones -->
+  <div id="instructions-modal" class="modal">
+    <div class="modal-content">
+      <h2>🧩 Instrucciones del Puzzle</h2>
+      <ul>
+        <li>► Arrastra las piezas haciendo clic para moverlas</li>
+        <li>► Solo puedes mover piezas adyacentes al espacio vacío</li>
+        <li>► Ordena la imagen del León de Nemea antes de que el tiempo termine</li>
+        <li>► Usa el botón "Mezclar" para reiniciar el puzzle</li>
+      </ul>
+      <button id="start-puzzle-btn">¡Comenzar!</button> <!-- Botón para iniciar el juego -->
+    </div>
+  </div>
+
+  <!-- Juego -->
+  <div class="game-container">
+    <h1>Cinturón de amazona</h1> <!-- Título del juego en pantalla -->
+
+    <!-- Contenedor donde se generará el puzzle deslizante -->
+    <div id="puzzle"></div>
+
+    <!-- Muestra el tiempo restante para resolver el puzzle -->
+    <div id="timer">Tiempo: 100</div>
+
+    <!-- Espacio para mostrar mensajes de victoria, derrota, etc. -->
+    <div id="mensaje"></div>
+
+    <!-- Botón para mezclar las piezas del puzzle y reiniciar el juego -->
+    <button id="mezclar-btn">Mezclar</button>
+  </div>
+
+  <!-- Enlace al archivo JavaScript que contiene la lógica del puzzle -->
+  <script src="scriptDeslizante.js"></script>
+</body>
+</html>

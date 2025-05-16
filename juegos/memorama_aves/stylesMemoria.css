@@ -1,0 +1,214 @@
+@font-face {
+    font-family: "Trajan Pro"; /* Nombre de la fuente personalizada */
+    src: url("../../fonts/trajan-pro-regular.ttf") format("truetype"); /* Ruta a la fuente */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Palatino Linotype";
+    src: url("../../fonts/palatino-linotype.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; /* Fuente principal */
+    background-color: #f4e9d8; /* Color de fondo */
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */ 
+    min-height: 100vh; /* Ocupa toda la altura de la ventana */
+    margin: 0; /* Elimina márgenes por defecto */
+}
+
+/* Modal de instrucciones */
+.modal {
+    position: fixed; /* Se mantiene fijo en pantalla */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    animation: fadeIn 0.5s ease-out; /* Animación de entrada */
+}
+
+/* Contenido dentro del modal */
+.modal-content {
+    background-color: #f4e9d8; /* Fondo claro */
+    padding: 25px;
+    border-radius: 15px;  /* Bordes redondeados */
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(139, 107, 61, 0.6); /* Sombra marrón */
+    border: 3px solid #8b6b3d; /* Borde decorativo */
+}
+
+/* Título del modal */
+.modal h2 {
+    color: #a0151c;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+/* Lista de instrucciones */
+.modal ul {
+    text-align: left;
+    margin: 25px 0;
+    padding-left: 20px;
+    list-style-type: none; /* Sin viñetas */
+}
+
+/* Cada ítem de la lista */
+.modal li {
+    margin-bottom: 12px;
+    color: #5d4a2e;
+    font-size: 18px;
+    position: relative;
+}
+
+/* Botón para iniciar el juego */
+#start-game-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* Efecto al pasar el cursor sobre el botón */
+#start-game-btn:hover {
+    background-color: #3e8e41;
+    transform: scale(1.05); /* Ligeramente más grande */
+}
+
+/* Contenedor del juego */
+.game-container {
+    background-color: #fdf8ee;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    max-width: 800px;
+}
+
+/* Título principal del juego */
+h1 {
+    color: black;
+    margin-top: 0;
+    font-size: 1.8rem;
+}
+
+/* Estadísticas del juego: movimientos y tiempo */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Tablero de cartas */
+.board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas iguales */
+    gap: 10px;
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+/* Estilos generales para cada carta */
+.card {
+    height: 100px;
+    width: 100px;
+    background-color: #5d4a2e;    
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+    transform-style: preserve-3d; /* Mantiene el efecto 3D al rotar */
+    border: 1px solid #8b6b3d;
+}
+
+/* Imagen dentro de la carta (oculta por defecto) */
+.card-image {
+    display: none;
+    width: 80%;
+    height: 80%;
+    object-fit: contain; /* Ajusta la imagen sin deformarla */
+}
+
+/* Muestra la imagen si la carta está girada */
+.card.flipped .card-image {
+    display: block;
+}
+
+/* Estilos cuando la carta está girada */
+.card.flipped {
+    background-color: #fdf8ee;;
+    color: #5d4a2e;
+    transform: rotateY(180deg); /* Efecto de giro */
+}
+
+/* Estilos para las cartas que ya han sido emparejadas */
+.card.matched {
+    background-color: #2ecc71;
+    cursor: default; /* No se puede clicar */
+}
+
+/* Botón de reinicio del juego */
+#reset-btn {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    padding: 10px 20px;
+    background-color: #8b6b3d;
+    color: #f4e9d8;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold; /* Texto en negrita */
+    transition: all 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra sutil */    
+}
+
+/* Efecto al pasar el cursor por el botón de reinicio */
+#reset-btn:hover {
+    background-color: #5d4a2e; /* Marrón más oscuro al hover */
+    transform: translateY(-2px); /* Efecto de elevación */
+}
+
+/* Efecto al hacer clic en el botón de reinicio */
+#reset-btn:active {
+    transform: translateY(0); /* Efecto de click */
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .board {
+        grid-template-columns: repeat(4, 1fr); /* Mantiene 4 columnas en móviles */
+    }
+    
+    .card {
+        height: 80px; /* Reduce altura de las cartas */
+    }
+}

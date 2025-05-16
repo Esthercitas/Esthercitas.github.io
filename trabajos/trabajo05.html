@@ -1,0 +1,79 @@
+<!DOCTYPE html> <!-- Define el tipo de documento como HTML5 -->
+<html lang="es"> <!-- Inicia el documento HTML y establece el idioma a español -->
+<head>
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que el sitio sea responsive en dispositivos móviles -->
+    <title>Mitología en Acción</title> <!-- Título que aparecerá en la pestaña del navegador -->
+    <link rel="stylesheet" href="../styles.css"> <!-- Vincula el archivo CSS externo para los estilos -->
+    <link rel="icon" type="image/png" href="../img/favicon.png"> <!-- Define el favicon (icono de la pestaña del navegador) -->
+</head>
+<body> <!-- Comienza el contenido visible de la página -->
+    <!-- Encabezado -->     
+    <header>
+        <a href="../index.html"> <!-- Enlace que lleva al inicio del sitio -->
+            <div class="logo"> <!-- Contenedor del logo -->
+                <img src="../img/logo.png" alt="Logo Mitología en Acción" class="logo-image"> <!-- Imagen del logo -->
+            </div>
+        </a>
+        
+        <nav><!-- Menú de navegación -->
+            <ul> <!-- Lista de enlaces -->
+                <li><a href="../index.html">Inicio</a></li> <!-- Enlace a la página de inicio -->
+                <li><a href="../elige_mitologia.html">Mitologías</a></li> <!-- Enlace a la página para elegir mitología -->
+                <li><a href="../inicia_aventura.html">Jugar</a></li> <!-- Enlace para comenzar la aventura -->
+                <li><a href="../sobre_proyecto.html">Sobre el proyecto</a></li> <!-- Enlace con información del proyecto -->
+            </ul>
+        </nav>
+        
+        <div class="search-bar"> <!-- Barra de búsqueda -->
+            <input type="text" id="search-input" placeholder="Buscar entre los dioses..." autocomplete="off"> <!-- Campo de entrada para buscar -->
+            <button id="search-button">🔍</button> <!-- Botón de búsqueda con icono -->
+            <div id="search-results" class="search-results"></div> <!-- Contenedor para mostrar los resultados de búsqueda -->
+        </div>
+    </header>
+    
+    <!-- Sección Hero -->
+    <section class="hero heracles-hero">
+        
+        <div class="hero-content">
+            <h1>Quinto trabajo</h1>
+        </div>
+    </section>
+    
+    <!-- Sección de opciones -->
+    <section class="heracles-section">
+        <div class="heracles-card">
+            <h2 class="heracles-title">Limpiar los establos de Augías</h2> 
+    
+            <p class="heracles-text">
+                El hedor te golpea antes de que siquiera divises los muros del reino de Élide. Treinta años de estiércol sagrado —de ganado divino— se acumulan en corrales que alguna vez fueron dorados. Ahora son una pesadilla de excrementos secos y moscas zumbantes.
+            <p class="heracles-text">  
+                "Ja. ¿Otro 'héroe'?" Augías, el rey, se ríe desde su balcón, tapándose la nariz con un paño bordado. "Ni el mismísimo Poseidón limpiaría esto. Si lo logras en un día... te daré la décima parte de mi ganado." Sus ojos brillan con mentira.
+            </p>              
+            <p class="heracles-text">
+                ¿Cómo enfrentarás este desafío?
+            </p>                   
+
+            <img src="../img/trabajo05.jpg" alt="Heracles con piel de león" class="heracles-image">
+    
+            <div class="heracles-links-trabajo5">                
+                <a href="../juegos/simon_augias/indexSimon.html" class="simple-link">Con un golpe certero, rompes el muro occidental. Luego corres hacia los ríos Alfeo y Peneo rugen.</a>
+            </div>
+            <div class="heracles-links-trabajo5">                
+                <a href="../juegos/puzzle_deslizante_augias/indexDeslizante.html" class="simple-link">Te quitas la túnica y tomas la pala más grande.</a>
+            </div>
+            <div class="heracles-links-trabajo5">                
+                <a href="trabajo06.html" class="simple-link">¿Y si... contrato esclavos?" El rey estalla en carcajadas. Al día siguiente, 300 prisioneros de guerra comienzan el trabajo... pero tú pierdes el favor de Atenea.</a>
+            </div> 
+        </div>
+        </div>
+    </section>               
+    <!-- Pie de página -->
+    <footer>
+        <p>Mitología en Acción - UOC 2025</p> <!-- Información del proyecto -->
+        <p>Creado por Esther Polo Fernández</p> <!-- Autora del proyecto -->
+    </footer>
+    
+    <script src="../search.js"></script>
+</body>
+</html> 

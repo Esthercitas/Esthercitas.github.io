@@ -1,0 +1,255 @@
+@font-face {
+    font-family: "Trajan Pro"; /* Nombre de la fuente personalizada */
+    src: url("../../fonts/trajan-pro-regular.ttf") format("truetype"); /* Ruta a la fuente */
+    font-weight: normal;
+    font-style: normal; 
+}
+
+@font-face {
+    font-family: "Palatino Linotype";
+    src: url("../../fonts/palatino-linotype.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Estilos generales */
+body {
+    display: flex; /* Usamos flexbox para centrar contenido */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: flex-start; /* Alinear al inicio verticalmente */
+    min-height: 100vh; /* Altura mínima para que ocupe toda la ventana */
+    padding: 20px; /* Espacio interno alrededor */
+    margin: 0; /* Eliminar margen por defecto */
+    background-color: #f4e9d8; /* Color de fondo claro */
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; /* Tipografías en orden de preferencia */
+}
+
+/* Contenedor del juego */
+.game-container-simon { 
+    background-color: #fdf8ee; /* Fondo claro */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    padding: 20px; /* Espaciado interno */
+    width: 90%; /* Ancho relativo al viewport */
+    max-width: 650px; /* Ancho máximo fijo */
+    margin: 20px auto; /* Centrado horizontal con margen vertical */
+    text-align: center; /* Centrar texto */
+    position: relative; /* Para posicionar elementos hijos */
+}
+
+/* Simon (contenido interno) */
+.simon {
+    position: relative; /* Para posicionar elementos internos */
+    padding: 10px; /* Espacio interno */
+}
+
+/* Estilo del título del juego */
+.title {
+    font-size: 2rem; /* Tamaño de fuente grande */
+    color: #5d4a2e; /* Color marrón oscuro */
+    margin-bottom: 20px; /* Espacio debajo */
+}
+
+/* Contenedor de los botones de colores en cuadrícula 3x3 */
+.buttonContainer {
+    display: grid; /* Usamos grid para organizar botones */
+    grid-gap: 10px; /* Espacio entre botones */
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas iguales */
+    margin: 30px auto; /* Margen arriba y abajo, centrado horizontal */
+    width: fit-content; /* Ajusta el ancho al contenido */
+}
+
+/* Estilos para cada botón cuadrado con color */
+.square {
+    width: 120px; /* Ancho fijo */
+    height: 120px; /* Alto fijo */
+    cursor: pointer; /* Cambia cursor para indicar interactividad */
+    border-radius: 10px; /* Bordes redondeados */
+    object-fit: cover; /* Ajusta la imagen para cubrir todo el botón */
+    transition: transform 0.2s, filter 0.2s; /* Animaciones suaves para transformaciones */
+    border: 3px solid #5d4a2e; /* Borde marrón oscuro */
+}
+
+/* Efecto al pulsar o cuando el botón está activo */
+.square:active, 
+.square.active {
+    transform: scale(0.95); /* Reduce tamaño ligeramente */
+    filter: brightness(1.2) saturate(1.5); /* Aumenta brillo y saturación */
+}
+
+/* Botón Start */
+#startButton {
+    width: 75px; /* Ancho fijo */
+    position: absolute; /* Posicionado respecto al contenedor padre */
+    top: 10px; /* Separación desde arriba */
+    right: 10px; /* Separación desde la derecha */
+    border: none; /* Sin borde */
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    cursor: pointer; /* Cursor de mano */
+    border-radius: 5px; /* Bordes redondeados */
+    color: #fff; /* Texto blanco */
+    background-color: #587792; /* Fondo azul grisáceo */
+    padding: 5px; /* Espaciado interno */
+}
+
+/* Estilo para botón Start deshabilitado */
+#startButton:disabled {
+    background-color: #eee; /* Fondo gris claro */
+}
+
+/* Ronda */
+#round {
+    font-size: 1.2rem; /* Tamaño de texto mediano */
+    color: #5d4a2e; /* Color marrón oscuro */
+    margin-top: 20px; /* Margen superior */
+}
+
+/* Modal */
+.modal {
+    position: fixed; /* Fija en pantalla */
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo negro semitransparente */
+    display: flex; /* Usamos flex para centrar contenido */
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+    z-index: 1000; /* Por encima de otros elementos */
+    animation: fadeIn 0.5s ease-out; /* Animación de entrada */
+}
+
+/* Contenido dentro del modal */
+.modal-content {
+    background-color: #f4e9d8; /* Fondo claro */
+    padding: 25px; /* Espacio interno */
+    border-radius: 15px; /* Bordes redondeados */
+    max-width: 500px; /* Ancho máximo */
+    text-align: center; /* Texto centrado */
+    box-shadow: 0 0 25px rgba(139, 107, 61, 0.6); /* Sombra suave marrón */
+    border: 3px solid #8b6b3d; /* Borde marrón */
+}
+
+/* Estilo para el encabezado dentro del modal */
+.modal h2 {
+    color: #a0151c; /* Color rojo oscuro */
+    margin-bottom: 20px; /* Margen inferior */
+    font-size: 28px; /* Tamaño grande */
+}
+
+/* Lista sin estilo predeterminado, con margen y padding */
+.modal ul {
+    text-align: left; /* Texto alineado a la izquierda */
+    margin: 25px 0; /* Margen arriba y abajo */
+    padding-left: 20px; /* Sangría */
+    list-style-type: none; /* Sin viñetas */
+}
+
+/* Estilo para cada ítem de la lista dentro del modal */
+.modal li {
+    margin-bottom: 12px; /* Separación inferior */
+    color: #5d4a2e; /* Color marrón */
+    font-size: 18px; /* Tamaño legible */
+    position: relative; /* Para posible posicionamiento */
+}
+
+/* Botón para comenzar el juego dentro del modal */
+#startSimonBtn {
+    background-color: #4CAF50; /* Verde */
+    color: white; /* Texto blanco */
+    padding: 12px 30px; /* Espaciado */
+    font-size: 18px; /* Texto grande */
+    border: none; /* Sin borde */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de mano */
+    transition: all 0.3s; /* Transición suave */
+    margin-top: 15px; /* Margen superior */
+    font-weight: bold; /* Texto en negrita */
+}
+
+/* Efecto hover para el botón de inicio */
+#startSimonBtn:hover {
+    background-color: #3e8e41; /* Verde más oscuro */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+}
+
+/* Botón Rendirse */
+.give-up-btn {
+    position: absolute; /* Posicionado dentro del contenedor padre */
+    bottom: 15px; /* Separación inferior */
+    right: 15px; /* Separación derecha */
+    background-color: #a0151c !important; /* Rojo oscuro (importante para sobrescribir otros estilos) */
+    color: white; /* Texto blanco */
+    border: none; /* Sin borde */
+    padding: 8px 15px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de mano */
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    font-size: 16px; /* Tamaño de texto */
+    transition: all 0.3s; /* Transición suave */
+}
+
+/* Efecto hover para el botón rendirse */
+.give-up-btn:hover {
+    background-color: #7a1016 !important; /* Rojo más oscuro */
+}
+
+/* Mensaje de victoria (ENLACE) */
+.victory-message {
+    display: inline-block; /* Se comporta como bloque en línea */
+    position: relative;
+    margin: 10px auto; /* Margen vertical y centrado horizontal */
+    font-size: 1.8rem !important; /* Tamaño grande (importante para sobrescribir) */
+    color: #FFD700 !important; /* Color dorado (importante) */
+    font-weight: bold; /* Negrita */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para texto */
+    background-color: rgba(160, 21, 28, 0.8); /* Fondo rojo semitransparente */
+    padding: 20px 40px !important; /* Espaciado interno grande */
+    border-radius: 8px; /* Bordes redondeados */
+    border: 2px solid #8b6b3d; /* Borde marrón */
+    text-decoration: none !important; /* Sin subrayado */
+    animation: pulse 1.5s infinite; /* Animación de pulsación */
+    cursor: pointer; /* Cursor de mano */
+    transition: all 0.3s; /* Transición suave */
+}
+
+/* Efecto hover para mensaje de victoria */
+.victory-message:hover {
+    background-color: rgba(160, 21, 28, 1); /* Fondo rojo sólido */
+    transform: scale(1.05); /* Aumenta tamaño */
+    text-decoration: none !important; /* Sin subrayado */
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Animación pulse para el mensaje de victoria */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .square {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .buttonContainer {
+        grid-gap: 8px;
+    }
+    
+    .title {
+        font-size: 1.5rem;
+    }
+    
+    .victory-message {
+        font-size: 1.5rem !important; 
+        padding: 10px 20px !important;
+    }
+}

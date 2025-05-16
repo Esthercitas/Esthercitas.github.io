@@ -1,0 +1,85 @@
+<!DOCTYPE html> <!-- Define el tipo de documento como HTML5 -->
+<html lang="es"> <!-- Inicia el documento HTML y establece el idioma a español -->
+<head>
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que el sitio sea responsive en dispositivos móviles -->
+    <title>Mitología en Acción</title> <!-- Título que aparecerá en la pestaña del navegador -->
+    <link rel="stylesheet" href="../styles.css"> <!-- Vincula el archivo CSS externo para los estilos -->
+    <link rel="icon" type="image/png" href="../img/favicon.png"> <!-- Define el favicon (icono de la pestaña del navegador) -->
+</head>
+<body> <!-- Comienza el contenido visible de la página -->
+    <!-- Encabezado -->     
+    <header>
+        <a href="../index.html"> <!-- Enlace que lleva al inicio del sitio -->
+            <div class="logo"> <!-- Contenedor del logo -->
+                <img src="../img/logo.png" alt="Logo Mitología en Acción" class="logo-image"> <!-- Imagen del logo -->
+            </div>
+        </a>
+        
+        <nav><!-- Menú de navegación -->
+            <ul> <!-- Lista de enlaces -->
+                <li><a href="../index.html">Inicio</a></li> <!-- Enlace a la página de inicio -->
+                <li><a href="../elige_mitologia.html">Mitologías</a></li> <!-- Enlace a la página para elegir mitología -->
+                <li><a href="../inicia_aventura.html">Jugar</a></li> <!-- Enlace para comenzar la aventura -->
+                <li><a href="../sobre_proyecto.html">Sobre el proyecto</a></li> <!-- Enlace con información del proyecto -->
+            </ul>
+        </nav>
+        
+        <div class="search-bar"> <!-- Barra de búsqueda -->
+            <input type="text" id="search-input" placeholder="Buscar entre los dioses..." autocomplete="off"> <!-- Campo de entrada para buscar -->
+            <button id="search-button">🔍</button> <!-- Botón de búsqueda con icono -->
+            <div id="search-results" class="search-results"></div> <!-- Contenedor para mostrar los resultados de búsqueda -->
+        </div>
+    </header>
+    
+    <!-- Sección Hero -->
+    <section class="hero heracles-hero">
+        
+        <div class="hero-content">
+            <h1>Undécimo trabajo</h1>
+        </div>
+    </section>
+    
+    <!-- Sección de opciones -->
+    <section class="heracles-section">
+        <div class="heracles-card">
+            <h2 class="heracles-title">Robar las manzanas del jardín de las Hespérides</h2> 
+    
+            <p class="heracles-text">
+                El océano Occidental arde en llamas al atardecer. Tras navegar por aguas donde las estrellas se hunden en el mar, llegas a un acantilado de cristal negro. En su cima, un jardín prohibido: árboles de hojas de plata, flores que cantan en coro... y el Dragón Ladón, enrollado alrededor del Árbol de la Vida, sus cien cabezas vigilando cada manzana dorada.
+            </p> 
+            <p class="heracles-text">  
+                Las Hespérides, ninfas vestidas de crepúsculo, te observan desde las sombras:
+            </p> 
+            <p class="heracles-text">
+                "No puedes tomarlas... pero quizá ganarlas"— susurra Egle, la más joven, mientras frota una manzana contra su pecho.
+            </p> 
+            <p class="heracles-text">
+                ¿Qué harás?
+            </p>                   
+
+            <img src="../img/trabajo11.jpg" alt="Heracles con piel de león" class="heracles-image">
+            
+            <div class="heracles-links-trabajo5">                
+                <a href="trabajo12.html" class="simple-link">"No necesito frutos. Solo vine a admirar vuestro jardín."</a>
+            </div>
+            <div class="heracles-links-trabajo5">                
+                <a href="../juegos/memorama_fruta/indexMemoria.html" class="simple-link">Las ninfas te tienden una mano con uñas afiladas:
+                    —"Encuentra el par de la manzana que brilla entre estas, y será tuya."</a>
+            </div>
+            <div class="heracles-links-trabajo5">                
+                <a href="../juegos/puzzle_deslizante_manzana/indexDeslizante.html" class="simple-link">Recuerdas que el titán Atlas conoce el secreto del jardín... pero está condenado a sostener el cielo. ¿Negociar?</a>
+            </div>
+            
+        </div>
+        </div>
+    </section>               
+    <!-- Pie de página -->
+    <footer>
+        <p>Mitología en Acción - UOC 2025</p> <!-- Información del proyecto -->
+        <p>Creado por Esther Polo Fernández</p> <!-- Autora del proyecto -->
+    </footer>
+    
+    <script src="../search.js"></script>
+</body>
+</html> 

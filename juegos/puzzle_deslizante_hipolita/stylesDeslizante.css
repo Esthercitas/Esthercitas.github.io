@@ -1,0 +1,242 @@
+@font-face {
+    font-family: "Trajan Pro"; /* Nombre de la fuente personalizada */
+    src: url("../../fonts/trajan-pro-regular.ttf") format("truetype"); /* Ruta a la fuente */
+    font-weight: normal;
+    font-style: normal;
+} 
+
+@font-face {
+    font-family: "Palatino Linotype";
+    src: url("../../fonts/palatino-linotype.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ===== [ ESTILOS GENERALES ] ===== */
+body {
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; /* Fuente base del sitio */
+  background-color: #f4e9d8; /* Color de fondo general */
+  color: #5d4a2e; /* Color del texto */
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh; /* Altura mínima del cuerpo para ocupar toda la pantalla */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra el contenido horizontalmente */
+}
+
+/* ===== [ MODAL INSTRUCCIONES ] ===== */
+.modal {
+  position: fixed; /* Posición fija en pantalla */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Se superpone al resto del contenido */
+  animation: fadeIn 0.5s ease-out; /* Animación de aparición */
+}
+
+.modal-content {
+  background-color: #f4e9d8; /* Fondo del modal */
+  padding: 25px;
+  border-radius: 15px;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(139, 107, 61, 0.6);
+  border: 3px solid #8b6b3d;
+}
+
+.modal h2 {
+  color: #a0151c;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.modal ul {
+  text-align: left;
+  margin: 25px 0;
+  padding-left: 20px;
+  list-style-type: none; /* Quita los bullets */
+}
+
+.modal li {
+  margin-bottom: 12px;
+  color: #5d4a2e;
+  font-size: 18px;
+  position: relative;
+}
+
+.modal li::before {  
+  color: #a0151c;
+  position: absolute;
+  left: -20px; /* Coloca el marcador a la izquierda */
+}
+
+/* ===== [ BOTONES ] ===== */
+button {
+  background-color: #8b6b3d;
+  color: #f4e9d8;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #5d4a2e; /* Cambia de color al pasar el mouse */
+  transform: scale(1.05); /* Efecto de agrandamiento */
+}
+
+#start-puzzle-btn {
+  background-color: #4CAF50; /* Botón verde para iniciar el juego */
+  color: white;
+  padding: 12px 30px;
+}
+
+#start-puzzle-btn:hover {
+  background-color: #3e8e41; /* Verde más oscuro al hacer hover */
+}
+
+/* ===== [ CONTENEDOR DEL JUEGO ] ===== */
+.game-container {
+  background-color: #fdf8ee;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 600px;
+  margin: 20px auto;
+  box-shadow: 0 0 15px rgba(139, 107, 61, 0.4);
+  text-align: center;
+}
+
+/* ===== [ TABLERO DEL PUZZLE ] ===== */
+#puzzle {
+  width: 300px;
+  height: 300px;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas de igual ancho */
+  grid-template-rows: repeat(4, 1fr); /* 4 filas de igual alto */
+  gap: 1px; /* Separación entre celdas */
+  border: 2px solid #8b6b3d;
+  position: relative;
+  overflow: visible;
+}
+
+.tile {
+  width: 100%;
+  height: 100%;
+  background-image: url("cinturon.png");/* Imagen del puzzle */
+  background-size: 300px 300px; /* Tamaño total del puzzle */
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tile:hover {
+  transform: scale(1.03); /* Efecto al pasar el mouse */
+  box-shadow: 0 0 8px rgba(139, 107, 61, 0.6);
+  z-index: 1;
+}
+
+.empty {
+  background: #ecf0f1;
+  cursor: default;
+}
+
+/* ===== [ EFECTOS DE ANIMACIÓN ] ===== */
+.tile-move {
+  animation: tile-move 0.3s ease; /* Se activa al mover una pieza */
+}
+
+@keyframes tile-move {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); box-shadow: 0 0 10px gold; }
+  100% { transform: scale(1); }
+}
+
+.victoria {
+  animation: pulse 1s infinite; /* Animación parpadeante */
+  text-shadow: 0 0 10px gold;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.derrota {
+  color: #a0151c;
+}
+
+/* ===== [ TEMPORIZADOR ] ===== */
+#timer {
+  color: #5d4a2e;
+  font-weight: bold;
+  background-color: rgba(139, 107, 61, 0.1);
+  padding: 8px 15px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+/* Cambia de color según el tiempo restante */
+.low-time { color: #F44336 !important; }
+.medium-time { color: #FFC107 !important; }
+
+/* ===== [ CONTADOR DE MOVIMIENTOS ] ===== */
+#contador-movimientos {
+  font-weight: bold;
+  margin: 10px 0;
+  color: #5d4a2e;
+  background-color: rgba(139, 107, 61, 0.1);
+  padding: 8px 15px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+/* ===== [ RESPONSIVE ] ===== */
+@media (max-width: 600px) {
+  #puzzle {
+    width: 90vw;
+    height: 90vw;
+  }
+  
+  .tile {
+    background-size: 100% 100%; /* Ajusta las piezas al nuevo tamaño */
+  }
+  
+  .modal-content {
+    width: 90%;
+    padding: 15px;
+  }
+}
+
+/* ===== [ EFECTO FADE IN ] ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===== [ ESTILOS PARA ENLACES ] ===== */
+#mensaje a {
+  text-decoration: none;
+  /*color: inherit; /* Opcional: hereda el color del contenedor */
+  display: inline-block; /* Mejor control del espaciado */
+  padding: 5px 10px; /* Opcional: espacio alrededor */
+  transition: all 0.3s; /* Opcional: efecto suave al hover */
+  margin-bottom: 10px;
+}
+
+
+#mensaje a:hover {
+  text-decoration: none;
+  /* Opcional: efecto hover personalizado */
+  transform: scale(1.05);
+  text-shadow: 0 0 8px currentColor;
+}

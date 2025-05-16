@@ -1,0 +1,60 @@
+<!DOCTYPE html> <!-- Define el tipo de documento como HTML5 -->
+<html lang="es"> <!-- Inicia el documento HTML y establece el idioma a español -->
+<head>
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que el sitio sea responsive en dispositivos móviles -->
+    <title>Al toro</title> <!-- Título que aparecerá en la pestaña del navegador -->
+    <link rel="stylesheet" href="stylesToro.css"> <!-- Vincula el archivo CSS externo para los estilos -->
+    <link rel="icon" type="image/png" href="../../img/favicon.png"> <!-- Define el favicon (icono de la pestaña del navegador) -->
+</head>
+<body>
+    <!-- Modal de instrucciones -->
+    <div id="instructions-modal" class="modal">
+        <div class="modal-content">
+            <h2>⚔️ Instrucciones del Juego ⚔️</h2>
+            <ul>
+                <li>► Elige entre <strong>Escudo</strong>, <strong>Antorcha</strong> o <strong>Hacha</strong> para vencer al Toro.</li>
+                <li>► El Toro usará: <strong>Cuernos</strong>, <strong>Furia</strong> o <strong>Embiste</strong>.</li>
+                <li>► Gana el mejor de 5 rondas.</li>
+                <li>► ¡Usa la sabiduría de los dioses para elegir!</li>
+            </ul>
+            <!-- Botón para iniciar el juego -->
+            <button id="start-battle-btn">¡Comenzar Juego!</button>
+        </div>
+    </div>
+
+    <!-- Juego (oculto inicialmente) -->
+    <div class="game-container" style="display: none;">
+        <h1>Al toro</h1>
+        <p class="leyenda">Elige tu arma (Mejor de 5 rondas):</p>
+        
+        <!-- Opciones de elección del jugador -->
+        <div class="opciones">
+            <button class="btn" id="piedra">🛡️ Escudo</button> <!-- Equivale a "Piedra" -->
+            <button class="btn" id="papel">🔥 Antorcha</button> <!-- Equivale a "Papel" -->
+            <button class="btn" id="tijera">🪓 Hacha</button> <!-- Equivale a "Tijera" -->
+        </div>
+        
+        <!-- Sección donde se muestra el resultado de cada ronda -->
+        <div class="resultado">            
+            <p id="eleccion-computadora">El Toro usó: </p> <!-- Muestra la elección del contrincante -->
+            <p id="eleccion-jugador">Heracles usó: </p> <!-- Muestra la elección del jugador -->
+            <p id="resultado">¡Que comience la batalla!</p> <!-- Resultado de la ronda -->
+            <p id="ronda">Ronda: 1/5</p> <!-- Número de ronda actual -->
+        </div>
+        
+        <!-- Puntos acumulados por cada jugador -->
+        <div class="puntaje">
+            <p id="puntos-jugador">Heracles: 0</p> <!-- Puntuación de Heracles -->
+            <p id="puntos-computadora">Toro: 0</p> <!-- Puntuación del contrincante -->
+        </div>
+    </div>
+
+    <!-- Archivos de sonido que se reproducen según el resultado -->
+    <audio id="sonido-victoria" src="sounds/victoria.mp3"></audio> <!-- Sonido si gana el jugador -->
+    <audio id="sonido-derrota" src="sounds/sounds_error.wav"></audio> <!-- Sonido si gana el contrincante o hay error -->
+    
+    <!-- Enlace al archivo JavaScript que contiene la lógica del juego -->
+    <script src="scriptToro.js"></script>
+</body>
+</html>

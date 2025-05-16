@@ -1,0 +1,55 @@
+<!DOCTYPE html> <!-- Define el tipo de documento como HTML5 -->
+<html lang="es"> <!-- Inicia el documento HTML y establece el idioma a español -->
+<head>
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que el sitio sea responsive en dispositivos móviles -->
+    <title>Desafío de las aves del Estínfalo</title> <!-- Título que aparecerá en la pestaña del navegador -->
+    <link rel="icon" type="image/png" href="../../img/favicon.png"> <!-- Define el favicon (icono de la pestaña del navegador) -->
+    <link rel="stylesheet" href="stylesNinja.css"> <!-- Vincula el archivo CSS externo para los estilos -->
+</head> 
+<body>
+    <!-- Modal de instrucciones -->
+    <div id="instructions-modal" class="modal">
+        <div class="modal-content">
+            <h2>Desafío de las aves del Estínfalo</h2>
+            <ul>
+                <li>► Haz clic en las aves del Estínfalo <span style="color: #ff3333; font-weight: bold;">rojas</span> (+1 punto).</li>
+                <li>► Evita las <span style="color: #3333ff; font-weight: bold;">azules</span> (-1 punto).</li>
+                <li>► No dejes escapar las <span style="color: #FFD700; font-weight: bold;">amarillas</span> (+2 puntos).</li>
+                <li>► Alcanza <strong>50 puntos antes de que se acabe el tiempo</strong>.</li>
+                <li>► Cada 5 puntos subes de nivel (¡los objetivos aparecerán más rápido!).</li>
+            </ul>
+            <!-- Botón para comenzar el juego desde el modal -->
+            <button id="start-game-btn">¡Comenzar Desafío!</button>
+        </div>
+    </div>
+
+    <!-- Elementos de audio -->
+    <audio id="sonidoVictoria" src="sound/victoria.mp3" preload="auto"></audio>
+    <audio id="sonidoDerrota" src="sound/sounds_error.wav" preload="auto"></audio>
+    <audio id="sonidoEspada" src="sound/espada.mp3" preload="auto"></audio>
+    <audio id="sonidoPupa" src="sound/pupa.mp3" preload="auto"></audio>
+    
+    <!-- Contenido del juego (oculto inicialmente) -->
+    <h1 id="titulo">Desafío de las aves del Estínfalo</h1>
+    <!-- Panel con información del progreso del juego -->
+    <div id="contadores">
+        <div id="puntos">Puntos: 0/50</div> <!-- Contador de puntos del jugador -->
+        <div id="temporizador">Tiempo: 60s</div> <!-- Temporizador del juego -->
+        <div id="nivel">Nivel: 1</div> <!-- Nivel actual del jugador -->
+    </div>
+
+    <!-- Contenedor principal donde aparecen las aves -->
+    <div id="juego">
+        <div id="mensaje-container"></div> <!-- Contenedor para mensajes como victoria o derrota -->
+    </div>
+    <!-- Botones para controlar el juego -->
+    <div id="botones">
+        <button id="iniciar">Comenzar Juego</button> <!-- Botón para iniciar el juego -->
+        <button id="reiniciar">Reiniciar</button> <!-- Botón para reiniciar el juego -->
+    </div>
+    
+    <!-- Inclusión del archivo JavaScript que controla la lógica del juego -->
+    <script src="scriptNinja.js"></script>
+</body>
+</html>

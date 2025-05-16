@@ -1,0 +1,84 @@
+<!DOCTYPE html> <!-- Define el tipo de documento como HTML5 -->
+<html lang="es"> <!-- Inicia el documento HTML y establece el idioma a español -->
+<head>
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que el sitio sea responsive en dispositivos móviles -->
+    <title>Mitología en Acción</title> <!-- Título que aparecerá en la pestaña del navegador -->
+    <link rel="stylesheet" href="styles.css"> <!-- Vincula el archivo CSS externo para los estilos -->
+    <link rel="icon" type="image/png" href="img/favicon.png"> <!-- Define el favicon (icono de la pestaña del navegador) -->
+</head>
+<body> <!-- Comienza el contenido visible de la página -->
+    <!-- Encabezado -->
+    
+    <header>
+        <a href="index.html"> <!-- Enlace que lleva al inicio del sitio -->
+            <div class="logo"> <!-- Contenedor del logo -->
+                
+                <img src="img/logo.png" alt="Logo Mitología en Acción" class="logo-image"> <!-- Imagen del logo -->
+            </div>
+        </a>
+        
+        <nav>  <!-- Menú de navegación --> 
+            <ul> <!-- Lista de enlaces -->
+                <li><a href="index.html">Inicio</a></li> <!-- Enlace a la página de inicio -->
+                <li><a href="elige_mitologia.html">Mitologías</a></li> <!-- Enlace a la página para elegir mitología -->
+                <li><a href="inicia_aventura.html">Jugar</a></li> <!-- Enlace para comenzar la aventura -->
+                <li><a href="sobre_proyecto.html">Sobre el proyecto</a></li> <!-- Enlace con información del proyecto -->
+            </ul>
+        </nav>
+        
+        <div class="search-bar"> <!-- Barra de búsqueda -->
+            <input type="text" id="search-input" placeholder="Buscar entre los dioses..." autocomplete="off"> <!-- Campo de entrada para buscar -->
+            <button id="search-button">🔍</button> <!-- Botón de búsqueda con icono -->
+            <div id="search-results" class="search-results"></div> <!-- Contenedor para mostrar los resultados de búsqueda -->
+        </div>
+    </header>
+    
+    <!-- Sección Hero -->
+    <section class="hero heracles-hero"> <!-- Sección con imagen hero y título principal -->
+        
+        <div class="hero-content"> <!-- Contenido dentro de la sección hero -->
+            <h1>12 trabajos de Heracles</h1> <!-- Título principal -->
+            
+        </div>
+    </section>
+    
+    <!-- Sección de opciones -->
+    <section class="intro-section"> <!-- Sección que introduce el prólogo -->
+        <div class="intro-card"> <!-- Tarjeta que contiene el texto del prólogo -->
+            <h2 class="titulo-prologo">Prólogo</h2>  <!-- Título del prólogo -->
+            <p>
+            En la antigua mitología griega, pocos nombres resuenan con tanta fuerza como el de Heracles. Hijo de Zeus y de una mortal, su vida estuvo marcada desde el inicio por el conflicto entre lo divino y lo humano. Famoso por su fuerza sobrehumana, pero también por su carácter impulsivo, Heracles fue víctima de un destino que no eligió. Desde su nacimiento, fue perseguido por la diosa Hera, esposa de Zeus, celosa del fruto de una infidelidad. A causa de su furia, Heracles cayó en una profunda locura que lo llevó a cometer un acto irreparable: acabar con la vida de su esposa e hijos.
+            </p>
+            <p>
+            Consumido por el dolor y en busca de redención, Heracles fue condenado a cumplir doce trabajos que parecían imposibles. Estas tareas, impuestas por el rey Euristeo, iban más allá de simples gestas físicas: eran una forma de expiación, un viaje hacia el perdón, la transformación y, en última instancia, la comprensión de sí mismo. Cada uno de los trabajos requería no solo fuerza, sino también ingenio, paciencia, humildad y coraje.
+            </p>
+            <p>
+            En esta experiencia, no solo conocerás esos doce trabajos legendarios, sino que también te adentrarás en ellos desde una perspectiva simbólica. Tú, como usuario, serás quien avance a través de decisiones que evocan los desafíos de Heracles. A cada paso, las elecciones que tomes reflejarán distintas formas de afrontar los conflictos, las dudas, los miedos y los anhelos. Este viaje no es solo una reconstrucción del mito, sino una reinterpretación íntima y contemporánea de lo que significa enfrentarse a lo más difícil de uno mismo.
+            </p>
+            <p>
+            Cada reto te interpelará. A veces sabrás qué hacer, otras veces no. Y en eso precisamente consiste el camino. Porque al igual que Heracles, todos cargamos con errores, preguntas sin respuesta y pruebas que parecen superar nuestras fuerzas. Pero también, como él, somos capaces de superarnos, de crecer y de construir un sentido propio incluso en medio del caos.
+            </p>
+            <p>
+            ¿Estás listo para comenzar los doce trabajos?   
+            </p>
+
+        <div class="intro-links"> <!-- Contenedor de los enlaces de acción -->
+            <a href="trabajos/trabajo01.html" class="simple-link">Continuar</a>  <!-- Enlace para continuar hacia el primer trabajo -->
+            <a href="index.html" class="simple-link">Volver a inicio</a> <!-- Enlace para regresar al inicio -->
+        </div>
+        </div>
+    </section>
+    
+    
+    
+    <!-- Pie de página -->
+    <footer> <!-- Sección de pie de página -->
+        <p>Mitología en Acción - UOC 2025</p> <!-- Información del proyecto -->
+        <p>Creado por Esther Polo Fernández</p> <!-- Autora del proyecto -->
+    </footer>
+    
+    <script src="script.js"></script> <!-- Script principal del sitio -->
+    <script src="search.js"></script> <!-- Script específico para la función de búsqueda -->
+</body>
+</html> 

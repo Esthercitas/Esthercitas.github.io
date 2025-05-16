@@ -1,0 +1,333 @@
+@font-face {
+  font-family: "Trajan Pro"; /* Nombre de la fuente personalizada */
+  src: url("../../fonts/trajan-pro-regular.ttf") format("truetype"); /* Ruta a la fuente */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Palatino Linotype";
+  src: url("../../fonts/palatino-linotype.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ===== ESTILOS GENERALES ===== */
+body {
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; /* Fuente principal */
+  text-align: center;
+  background-color: #f4e9d8; /* Color de fondo */
+  color: #5d4a2e;/* Color de texto */
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh; /* Altura mínima del viewport */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Título principal */
+h1 {
+  color: #a0151c; /* Rojo oscuro */
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Sombra sutil */
+}
+
+/* ===== MODAL DE INSTRUCCIONES ===== */
+.modal {
+  position: fixed; /* Fijo en la pantalla */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Se muestra por encima de todo */
+  animation: fadeIn 0.5s ease-out; /* Animación de entrada */
+}
+
+/* Contenido dentro del modal */
+.modal-content {
+  background-color: #f4e9d8;
+  padding: 25px;
+  border-radius: 15px;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(139, 107, 61, 0.6);  /* Sombra suave */
+  border: 3px solid #8b6b3d;
+}
+
+.modal h2 {
+  color: #a0151c;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+/* Lista de instrucciones */
+.modal ul {
+  text-align: left;
+  margin: 25px 0;
+  padding-left: 20px;
+  list-style-type: none;  /* Sin viñetas */
+}
+
+.modal li {
+  margin-bottom: 12px;
+  color: #5d4a2e;
+  font-size: 18px;
+  position: relative;
+}
+
+/* Personalización del símbolo antes de cada elemento de la lista */
+.modal li::before {
+  color: #a0151c;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+/* Botón para comenzar el juego */
+#start-game-btn {
+  background-color: #8b6b3d;
+  color: #f4e9d8;
+  border: none;
+  padding: 12px 30px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+/* Efecto hover del botón */
+#start-game-btn:hover {
+  background-color: #5d4a2e;
+  transform: scale(1.05);
+}
+
+/* ===== CONTENEDOR DEL JUEGO ===== */
+.game-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  display: none; /* Oculto hasta que comience el juego */
+}
+
+/* ===== TABLERO ===== */
+#tablero {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 8px;
+  background-color: #8b6b3d;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: fit-content;
+  margin: 20px auto;
+}
+
+/* Celdas individuales del tablero */
+.celda {
+  background-color: #fdf8ee;
+  border: 2px solid #5d4a2e;
+  border-radius: 5px;
+  font-size: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  user-select: none;
+}
+
+/* Efecto hover en celdas */
+.celda:hover {
+  background-color: #e8e1d5;
+  transform: scale(1.03);
+}
+
+/* Celdas marcadas por el jugador */
+.celda.jugador {
+  color: #1a3e8c; /* Azul oscuro */
+}
+
+/* Celdas marcadas por la máquina */
+.celda.maquina {
+  color: #a0151c; /* Rojo oscuro */
+}
+
+/* Celdas ganadoras */
+.celda.ganadora {
+  animation: pulse 0.5s 3; /* Animación de pulso */
+  background-color: #f5d742; /* Amarillo */
+}
+
+/* ===== PUNTUACIÓN ===== */
+#puntuacion {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 20px 0;
+  font-size: 20px;
+}
+
+#puntuacion div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#puntuacion-jugador {
+  color: #1a3e8c;
+  font-weight: bold;
+}
+
+#puntuacion-maquina {
+  color: #a0151c;
+  font-weight: bold;
+}
+
+/* ===== RONDAS ===== */
+#rondas {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+#rondas div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+#rondas-jugador {
+  color: #1a3e8c;
+}
+
+#rondas-maquina {
+  color: #a0151c;
+}
+
+#num-ronda {
+  font-weight: bold;
+}
+
+/* ===== MENSAJES Y CONTROLES ===== */
+#mensaje {
+  margin: 20px 0;
+  font-size: 24px;
+  font-weight: bold;
+  min-height: 36px; /* Para evitar que el espacio cambie */
+}
+
+#resultado-final {
+  margin: 15px 0;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  text-align: center;
+  width: 100%;
+}
+
+/* Estilos para mensajes de victoria */
+.victoria {
+  color: #4a752c;
+  background-color: rgba(74, 117, 44, 0.1);
+  border: 1px solid #4a752c;
+}
+
+/* Estilos para mensajes de derrota */
+.derrota {
+  color: #a0151c;
+  background-color: rgba(160, 21, 28, 0.1);
+  border: 1px solid #a0151c;
+}
+
+/* Botón para continuar */
+#continuar-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 15px;
+  font-size: 1rem;
+  color: #5d4a2e;
+  border: 1px solid #8b6b3d;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s;
+  background-color: rgba(139, 107, 61, 0.1);
+}
+
+/* Efecto hover en botón continuar */
+#continuar-btn:hover {
+  background-color: #8b6b3d;
+  color: #f4e9d8;
+}
+
+/* Botón para reiniciar el juego */
+#reiniciar {
+  background-color: #8b6b3d;
+  color: #f4e9d8;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  margin-top: 10px;
+}
+
+#reiniciar:hover {
+  background-color: #5d4a2e;
+  transform: translateY(-2px);
+}
+
+/* ===== ANIMACIONES ===== */
+/* Animación para la aparición del modal */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  #tablero {
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(3, 80px);
+  }
+  
+  .modal-content {
+    width: 90%;
+    padding: 15px;
+  }
+  
+  .modal li {
+    font-size: 16px;
+  }
+
+  #resultado-final {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  #continuar-btn {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+}

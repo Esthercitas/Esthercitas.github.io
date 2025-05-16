@@ -1,0 +1,71 @@
+<!DOCTYPE html> <!-- Define el tipo de documento como HTML5 -->
+<html lang="es"> <!-- Inicia el documento HTML y establece el idioma a español -->
+<head>
+  <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que el sitio sea responsive en dispositivos móviles -->
+  <title>3 en Raya: Heracles vs Hipólita</title> <!-- Título que aparecerá en la pestaña del navegador -->
+  <link rel="stylesheet" href="styles3raya.css"> <!-- Vincula el archivo CSS externo para los estilos -->
+  <link rel="icon" type="image/png" href="../../img/favicon.png"> <!-- Define el favicon (icono de la pestaña del navegador) -->
+</head>
+<body>
+  <!-- Modal de instrucciones --> 
+  <div id="instructions-modal" class="modal">
+    <div class="modal-content">
+      <!-- Título del modal y lista de instrucciones -->
+      <h2>⚔️ Heracles vs Hipólita ⚔️</h2>
+      <ul>
+        <li>► Heracles (X) juega contra Hipólita (O)</li>
+        <li>► Se jugarán exactamente 3 rondas</li>
+        <li>► Gana quien gane más rondas</li>
+        <li>► ¡Demuestra tu valía, guerrero!</li>
+      </ul>
+      <!-- Botón para comenzar el juego -->
+      <button id="start-game-btn">¡Comenzar Juego!</button>
+    </div>
+  </div>
+
+  <!-- Contenedor del juego -->
+  <div class="game-container">
+    <h1>3 en Raya</h1>
+    
+    <!-- Sección de puntuación -->
+    <div id="puntuacion">
+      <div>
+        <span>⚔️ Heracles:</span> <!-- Nombre del jugador -->
+        <span id="puntuacion-jugador">0</span> <!-- Puntuación del jugador -->
+      </div>
+      <div>
+        <span>👑 Hipólita:</span> <!-- Nombre de la máquina/oponente -->
+        <span id="puntuacion-maquina">0</span> <!-- Puntuación de la máquina/oponente -->
+      </div>
+    </div>
+
+    <!-- Sección de rondas -->
+    <div id="rondas">
+      <div>
+        <span>Ronda:</span>
+        <span id="num-ronda">1</span>/3 <!-- Número de ronda actual -->
+      </div>
+      <div>
+        <span>Victorias:</span>
+        <span id="rondas-jugador">0</span> - <!-- Victorias del jugador -->
+        <span id="rondas-maquina">0</span> <!-- Victorias de la máquina/oponente -->
+      </div>
+    </div>
+    
+    <!-- Área del tablero de juego -->
+    <div id="tablero"></div>     <!-- Mensaje inicial del juego -->
+    <div id="mensaje">Preparando partida...</div> <!-- Área para mostrar el resultado final -->
+    <div id="resultado-final" style="display: none;"></div>
+    <button id="reiniciar">Nueva Partida</button> <!-- Botón para reiniciar el juego -->
+  </div>
+
+  <!-- Precarga de audio -->
+  <audio id="victoria-sound" src="sounds/victoria.mp3" preload="auto"></audio>
+  <audio id="sonido-jugador" src="sounds/sonido1.mp3" preload="auto"></audio>
+  <audio id="sonido-maquina" src="sounds/sonido2.mp3" preload="auto"></audio>
+
+  <!-- Vinculación del archivo JavaScript que contiene la lógica del juego -->
+  <script src="script3raya.js"></script>
+</body>
+</html>

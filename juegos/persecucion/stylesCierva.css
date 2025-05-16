@@ -1,0 +1,248 @@
+@font-face {
+    font-family: "Trajan Pro"; /* Nombre de la fuente personalizada */
+    src: url("../../fonts/trajan-pro-regular.ttf") format("truetype"); /* Ruta a la fuente */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Palatino Linotype";
+    src: url("../../fonts/palatino-linotype.ttf") format("truetype"); 
+    font-weight: normal; 
+    font-style: normal;
+}
+
+/* ===== ESTILOS GENERALES ===== */
+body {
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; /* Fuente principal */
+    background-color: #f4e9d8; /* Color de fondo claro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Altura mínima del viewport */
+    margin: 0;
+    padding: 20px;
+    overflow-x: hidden; /* Evita desplazamiento horizontal */
+}
+
+/* ===== MODAL DE INSTRUCCIONES ===== */
+.modal {
+    position: fixed; /* Posición fija en pantalla */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo negro semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Encima del resto */
+    animation: fadeIn 0.5s ease-out; /* Animación de aparición */
+}
+
+.modal-content {
+    background-color: #f4e9d8;
+    padding: 25px;
+    border-radius: 15px;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(139, 107, 61, 0.6); /* Sombra exterior */
+    border: 3px solid #8b6b3d; /* Borde marrón */
+}
+
+.modal h2 {
+    color: #a0151c;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.modal ul {
+    text-align: left;
+    margin: 25px 0;
+    padding-left: 20px;
+    list-style-type: none; /* Sin viñetas */
+}
+
+.modal li {
+    margin-bottom: 12px;
+    color: #5d4a2e;
+    font-size: 18px;
+    position: relative;
+}
+
+#start-game-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+#start-game-btn:hover {
+    background-color: #3e8e41; /* Verde más oscuro al pasar el cursor */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+}
+
+/* ===== JUEGO PRINCIPAL ===== */
+.game-container {
+    background-color: #fdf8ee;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    display: none; /* Oculto hasta que comience el juego */
+}
+
+h1 {
+    color: #5d4a2e;
+    margin-top: 10px;
+    font-size: 1.8rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor de la barra de energía */
+#stamina-bar-container {
+    margin: 15px auto;
+    width: 80%;
+    background-color: #e0e0e0;
+    border-radius: 12px;
+    padding: 3px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); /* Sombra interna */
+}
+
+#stamina-bar {
+    height: 20px;
+    border-radius: 10px;
+    transition: width 0.3s ease, background-color 0.3s ease;
+    width: 100%;
+    background: #4CAF50;
+}
+
+#stamina-bar.medium {
+    background: #FFC107;
+}
+
+#stamina-bar.low {
+    background: #F44336;
+}
+
+#stamina-text {
+    margin: 8px 0;
+    font-weight: bold;
+    font-size: 16px;
+    color: #5d4a2e;
+}
+
+#counter {
+    font-size: 18px;
+    margin: 15px 0;
+    color: #5d4a2e;
+    font-weight: bold;
+}
+
+/* Zona del juego */
+#game-board {
+    width: 100%;
+    height: 400px;
+    background-image: url("images/campo.jpg"); /* Fondo del escenario */
+    background-size: cover;    
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 2px solid #8b6b3d;
+}
+
+/* Personajes y obstáculos */
+.character {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.2s;
+    image-rendering: crisp-edges; /* Evita el suavizado de bordes */
+} 
+
+#heracles {
+    background-image: url('images/heracles.png'); /* Imagen de Heracles */
+    z-index: 10; /* Encima de la cierva */
+}
+
+#cierva {
+    background-image: url('images/cierva.png'); /* Imagen de la cierva */
+    z-index: 5;
+}
+
+.obstaculo {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url('images/arbol.png'); /* Imagen del obstáculo (árbol) */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 2;    
+}
+
+#message {
+    font-style: italic;
+    color: #5d4a2e;
+    min-height: 24px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(139, 107, 61, 0.1);
+    transition: all 0.3s;
+}
+
+/* ANIMACIONES */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Efecto visual cuando se captura a la cierva */
+@keyframes captura {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+.captura-effect {
+    animation: captura 0.5s;
+}
+
+/* Animación de movimiento de personajes */
+@keyframes paso {
+    0% { transform: translateY(0) scaleX(1); }
+    50% { transform: translateY(-3px) scaleX(1); }
+}
+
+.moving {
+    animation: paso 0.6s infinite alternate;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    #game-board {
+        height: 350px;
+    }
+    
+    .modal-content {
+        width: 90%;
+        padding: 15px;
+    }
+    
+    .modal li {
+        font-size: 16px;
+    }
+}

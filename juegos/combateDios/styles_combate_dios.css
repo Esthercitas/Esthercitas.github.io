@@ -1,0 +1,361 @@
+@font-face {
+    font-family: "Trajan Pro"; /* Nombre de la fuente personalizada */
+    src: url("../../fonts/trajan-pro-regular.ttf") format("truetype"); /* Ruta a la fuente */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Palatino Linotype";
+    src: url("../../fonts/palatino-linotype.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; /* Tipografía general */
+    background-color: #f4e9d8; /* Color de fondo */
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: flex-start; /* Alineado arriba en vertical */
+    min-height: 100vh;
+    padding: 20px;
+    margin: 0;
+    overflow-x: hidden; /* Oculta desplazamiento horizontal */
+}
+
+/* Modal de instrucciones */
+/* Fondo semitransparente que cubre toda la pantalla */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Se muestra encima de todo */
+    animation: fadeIn 0.5s ease-out; /* Animación de entrada */
+}
+
+/* Caja del modal */
+.modal-content {
+    background-color: #f4e9d8;
+    padding: 25px;
+    border-radius: 15px;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(139, 107, 61, 0.6);
+    border: 3px solid #8b6b3d;
+}
+
+.modal h2 {
+    color: #a0151c;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.modal ul {
+    text-align: left;
+    margin: 25px 0;
+    padding-left: 20px;
+    list-style-type: none;
+}
+
+.modal li {
+    margin-bottom: 12px;
+    color: #5d4a2e;
+    font-size: 18px;
+    position: relative;    
+}
+
+/* Botón para iniciar el juego */
+#start-battle-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+#start-battle-btn:hover {
+    background-color: #3e8e41;
+    transform: scale(1.05);
+}
+
+/* Juego */
+.game-container {
+    background-color: #fdf8ee;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    margin: 0px auto; /* Centrado con margen */
+    text-align: center;
+}
+
+h1 {
+    margin-top: 10px;
+    font-size: 1.8rem; /* Tamaño responsive */
+}
+
+/* CONTENEDOR DE LAS FIGURAS (JUGADOR VS ENEMIGO) */
+.figuras-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+    gap: 20px;
+}
+
+/* Caja individual de jugador o enemigo */
+.figura {
+    width: 45%;
+    padding: 20px;
+    border-radius: 12px;
+    transition: all 0.3s;
+    position: relative;
+}
+
+/* Estilos distintos para jugador y enemigo */
+.player {
+    background-color: rgba(59, 130, 246, 0.15);
+    border: 3px solid rgba(59, 130, 246, 0.4);
+}
+
+.enemy {
+    background-color: rgba(220, 38, 38, 0.15);
+    border: 3px solid rgba(220, 38, 38, 0.4);
+}
+
+/* Barra de PS (vida) */
+.ps-bar {
+    background-color: #e0e0e0;
+    height: 25px;
+    border-radius: 12px;
+    margin: 15px 0;
+    overflow: hidden;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Parte coloreada de la barra de PS */
+.ps-fill {
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+/* Colores de PS según porcentaje - jugador */
+.player .ps-fill {
+    background: #4CAF50; /* Verde (>50%) */
+}
+
+.player .ps-fill.medium {
+    background: #FFC107; /* Amarillo (50%-25%) */
+}
+
+.player .ps-fill.low {
+    background: #F44336; /* Rojo (<25%) */
+}
+
+/* Colores sólidos para PS del enemigo */
+.enemy .ps-fill {
+    background: #4CAF50; /* Verde (>50%) */
+}
+
+.enemy .ps-fill.medium {
+    background: #FFC107; /* Amarillo (50%-25%) */
+}
+
+.enemy .ps-fill.low {
+    background: #F44336; /* Rojo (<25%) */
+}
+
+.ps-text {
+    margin: 8px 0;
+    font-weight: bold;
+    font-size: 16px;
+    color: #5d4a2e;
+}
+
+/* Imagen de personaje */
+img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin-top: 10px;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+}
+
+/* CONTROLES DEL JUGADOR */
+/* Contenedor general de acciones */
+.actions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Contenedor de botones de ataque */
+.attack-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+/* Estilo de botones */
+button {
+    background-color: #8b6b3d;
+    color: #f4e9d8;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #5d4a2e;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Botón de poción */
+.potion-button {
+    background-color: #a0151c !important;
+    margin-top: 10px;
+    padding: 12px;
+}
+
+.potion-button:hover {
+    background-color: #7a1016 !important;
+}
+
+/* REGISTRO DE BATALLA */
+.battle-log {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 15px;
+    height: 50px;
+    overflow-y: auto;
+    text-align: left;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+}
+
+.battle-log p {
+    margin: 8px 0;
+    padding: 5px 0;
+    border-bottom: 1px dashed #eee;
+    font-size: 15px;
+}
+
+/* EFECTOS VISUALES DE DERROTA/VICTORIA */
+/* Fondo oscuro encima de la figura derrotada */
+.player-defeated::after,
+.enemy-defeated::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 9px;
+    z-index: 5;
+}
+
+/* Texto de victoria o derrota */
+.defeat-message,
+.victory-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px black;
+    z-index: 10;
+    width: 100%;
+    text-align: center;
+}
+
+/* Mensaje de victoria con animación dorada */
+.victory-message {
+    color: #FFD700;
+    animation: pulse 1.5s infinite;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.1); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-5px); }
+}
+
+@keyframes damageFlash {
+    0% { background-color: rgba(255, 0, 0, 0.7); }
+    100% { background-color: transparent; }
+}
+
+/* Clases aplicadas dinámicamente para animaciones */
+.attacking {
+    animation: shake 0.4s ease-in-out;
+}
+
+.taking-damage {
+    animation: damageFlash 0.3s ease-out;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .figuras-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .figura {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+    
+    .attack-buttons {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        width: 90%;
+        padding: 15px;
+    }
+    
+    .modal li {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html> <!-- Define el tipo de documento como HTML5 -->
+<html lang="es"> <!-- Inicia el documento HTML y establece el idioma a español -->
+<head>
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que el sitio sea responsive en dispositivos móviles -->
+    <title>Cazaciervas</title> <!-- Título que aparecerá en la pestaña del navegador -->
+    <link rel="icon" type="image/png" href="../../img/favicon.png"> <!-- Define el favicon (icono de la pestaña del navegador) -->
+    <link rel="stylesheet" href="stylesMemoria.css"> <!-- Vincula el archivo CSS externo para los estilos -->
+</head>
+<body>
+    <!-- Modal de instrucciones -->
+    <div id="instructions-modal" class="modal">
+        <div class="modal-content">
+            <h2>🦌 Cazaciervas 🦌</h2>
+            <ul>
+                <li>► Voltea dos cartas por turno para encontrar parejas.</li>
+                <li>► Si las cartas coinciden, se quedarán visibles.</li>
+                <li>► Tienes <strong>50 segundos</strong> para encontrar todos los pares.</li>
+                <li>► ¡Cuidado! Cada movimiento cuenta.</li>
+            </ul>
+            <!-- Botón para iniciar el juego -->
+            <button id="start-game-btn">¡Comenzar!</button>
+        </div>
+    </div>
+
+    <!-- Juego (oculto inicialmente) -->
+    <div class="game-container" style="display: none;">
+        <h1>Cazaciervas</h1>
+        <!-- Estadísticas del juego: movimientos realizados y tiempo restante -->
+        <div class="stats">
+            <span id="moves">Movimientos: 0</span> <!-- Contador de movimientos -->
+            <span id="timer">Tiempo: 0s</span> <!-- Temporizador del juego -->
+        </div>
+        <!-- Tablero del juego donde se colocarán las cartas -->
+        <div class="board" id="board"></div>
+        <!-- Botón para reiniciar el juego -->
+        <button id="reset-btn">Reiniciar Juego</button>
+    </div>
+
+    <!-- Inclusión del archivo JavaScript que contiene la lógica del juego -->
+    <script src="scriptMemoria.js"></script>
+</body>
+</html>

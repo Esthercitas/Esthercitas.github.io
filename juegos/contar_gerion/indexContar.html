@@ -1,0 +1,61 @@
+<!DOCTYPE html> <!-- Define el tipo de documento como HTML5 -->
+<html lang="es"> <!-- Inicia el documento HTML y establece el idioma a español -->
+<head>
+  <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que el sitio sea responsive en dispositivos móviles -->
+  <title>Cuentatoros</title> <!-- Título que aparecerá en la pestaña del navegador -->
+  <link rel="icon" type="image/png" href="../../img/favicon.png"> <!-- Define el favicon (icono de la pestaña del navegador) -->
+  <link rel="stylesheet" href="stylesContar.css"> <!-- Vincula el archivo CSS externo para los estilos -->
+</head>
+<body>
+
+  <!-- Modal de instrucciones -->
+  <div id="instructions-modal" class="modal">
+    <div class="modal-content">
+      <h2>🔴 Cuentatoros 🔴</h2>
+      <ul>
+        <li>► Se mostrarán toros de diferentes colores durante 6 segundos</li>
+        <li>► Solo debes contar las <strong>toros rojas</strong></li>
+        <li>► Cada ronda será más rápida que la anterior</li>
+        <li>► ¡Necesitas acertar al menos 3 rondas para ganar!</li>
+      </ul>
+      <button id="start-game-btn">¡Comenzar!</button> <!-- Botón para cerrar el modal e iniciar el juego -->
+    </div> 
+  </div>
+
+  <!-- Título principal del juego -->
+  <h1>¿Cuántas toros rojos viste?</h1>
+
+  <!-- Botón inicial para comenzar la primera ronda del juego -->
+  <button id="inicio">Empezar juego</button>
+
+  <!-- Mensaje de transición entre rondas -->
+  <div id="transicion">¡Comienza la ronda!</div>
+
+  <!-- Contenedor donde se mostrarán los toros durante el juego -->
+  <div id="juego"></div>
+
+  <!-- Sección para responder a la pregunta después de ver los toros -->
+  <div id="pregunta">
+    <p id="textoPregunta">¿Cuántas toros rojos viste?</p>
+    <input type="number" id="respuesta"> <!-- Campo para ingresar el número de toros rojos contados -->
+    <button onclick="verificarRespuesta()">Enviar</button> <!-- Botón que llama a la función JS para verificar -->
+    <p id="resultado"></p> <!-- Muestra si la respuesta fue correcta o no -->
+    
+    <!-- Mensaje final de victoria o derrota (inicialmente oculto) -->
+    <div id="mensaje-final" style="display:none; margin-top:10px;">
+      <span id="mensaje-victoria-derrota"></span>
+    </div>
+    <!-- Botón para pasar a la siguiente ronda, oculto hasta que se responda -->
+    <button id="continuar" style="display:none;" onclick="siguienteRonda()">Continuar</button>
+  </div>
+
+  <!-- Audios que se reproducen según el resultado del jugador -->
+  <audio id="audio-victoria" src="sound/victoria.mp3" preload="auto"></audio>
+  <audio id="audio-error" src="sound/sounds_error.wav" preload="auto"></audio>
+
+  <!-- Enlace al archivo de JavaScript donde está la lógica del juego -->
+  <script src="scriptContar.js"></script>
+
+</body>
+</html>

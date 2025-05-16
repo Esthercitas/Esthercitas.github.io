@@ -1,0 +1,72 @@
+<!DOCTYPE html> <!-- Define el tipo de documento como HTML5 -->
+<html lang="es"> <!-- Inicia el documento HTML y establece el idioma a español -->
+<head>
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que el sitio sea responsive en dispositivos móviles -->
+    <title>Mitología en Acción</title> <!-- Título que aparecerá en la pestaña del navegador -->
+    <link rel="stylesheet" href="styles.css"> <!-- Vincula el archivo CSS externo para los estilos -->
+    <link rel="icon" type="image/png" href="img/favicon.png"> <!-- Define el favicon (icono de la pestaña del navegador) -->
+</head>
+<body> <!-- Comienza el contenido visible de la página -->
+    <!-- Encabezado -->
+    
+    <header>
+        <a href="index.html"> <!-- Enlace que lleva al inicio del sitio -->
+            <div class="logo"> <!-- Contenedor del logo -->
+                
+                <img src="img/logo.png" alt="Logo Mitología en Acción" class="logo-image"> <!-- Imagen del logo -->
+            </div>
+        </a>
+        
+        <nav>  <!-- Menú de navegación --> 
+            <ul> <!-- Lista de enlaces -->
+                <li><a href="index.html">Inicio</a></li> <!-- Enlace a la página de inicio -->
+                <li><a href="elige_mitologia.html">Mitologías</a></li> <!-- Enlace a la página para elegir mitología -->
+                <li><a href="inicia_aventura.html">Jugar</a></li> <!-- Enlace para comenzar la aventura -->
+                <li><a href="sobre_proyecto.html">Sobre el proyecto</a></li> <!-- Enlace con información del proyecto -->
+            </ul>
+        </nav>
+        
+        <div class="search-bar"> <!-- Barra de búsqueda -->
+            <input type="text" id="search-input" placeholder="Buscar entre los dioses..." autocomplete="off"> <!-- Campo de entrada para buscar -->
+            <button id="search-button">🔍</button> <!-- Botón de búsqueda con icono -->
+            <div id="search-results" class="search-results"></div> <!-- Contenedor para mostrar los resultados de búsqueda -->
+        </div>
+    </header>
+    
+    <!-- Sección Hero -->
+    <section class="hero proyecto-hero"> <!-- Sección principal de la página con fondo o imagen de bienvenida -->
+        
+        <div class="hero-content"> <!-- Contenedor para el contenido de la sección hero -->
+            <h1>Sobre el proyecto</h1> <!-- Título principal de la sección -->
+        </div>
+    </section>
+    
+    <!-- Sección de opciones -->
+    <section class="intro-section"> <!-- Sección introductoria del contenido -->
+        <div class="intro-card"> <!-- Contenedor para la tarjeta introductoria -->
+            <p>
+            A medida que el proyecto evolucione, planeamos ampliar el contenido incorporando nuevas mitologías y relatos épicos de diversas culturas. Próximas actualizaciones incluirán más relatos interactivos, nuevos minijuegos y una mayor personalización en la experiencia del usuario. Además, trabajaremos en mejoras técnicas para optimizar el rendimiento y la accesibilidad de la plataforma, asegurando que más personas puedan disfrutar y aprender de este viaje mitológico.
+            </p>        
+            <p>
+            Por el momento, te invitamos a que disfrutes de la mitología griega y de los 12 trabajos de Heracles.
+            </p>
+                
+            <div class="intro-links"> <!-- Contenedor para los enlaces dentro de la sección introductoria -->
+            <a href="sobre_proyecto.html" class="simple-link">Volver</a> <!-- Enlace para volver a la página de información sobre el proyecto -->
+            <a href="index.html" class="simple-link">Inicio</a> <!-- Enlace a la página de inicio -->
+        </div>
+        </div>
+    </section>
+    
+    
+    <!-- Pie de página -->
+    <footer> <!-- Sección de pie de página -->
+        <p>Mitología en Acción - UOC 2025</p> <!-- Información del proyecto -->
+        <p>Creado por Esther Polo Fernández</p> <!-- Autora del proyecto -->
+    </footer>
+    
+    <script src="script.js"></script> <!-- Script principal del sitio -->
+    <script src="search.js"></script> <!-- Script específico para la función de búsqueda -->
+</body>
+</html> 

@@ -1,0 +1,70 @@
+<!DOCTYPE html> <!-- Define el tipo de documento como HTML5 -->
+<html lang="es"> <!-- Inicia el documento HTML y establece el idioma a español -->
+<head>
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que el sitio sea responsive en dispositivos móviles -->
+    <title>Apacigua a las yeguas</title><!-- Título que aparecerá en la pestaña del navegador -->
+    <link rel="stylesheet" href="stylesMusica.css"> <!-- Vincula el archivo CSS externo para los estilos -->
+    <link rel="icon" type="image/png" href="../../img/favicon.png"> <!-- Define el favicon (icono de la pestaña del navegador) -->
+</head>
+<body>
+    <!-- Modal de instrucciones -->
+    <div id="instructions-modal" class="modal">
+        <div class="modal-content">
+            <h2>🎵 Apacigua a las yeguas 🎵</h2>
+            <ul>
+                <li>► Reproduce la secuencia secreta de notas</li>
+                <li>► Tienes 2 minutos para descubrirla</li>
+                <li>► Cada nota incorrecta reinicia tu progreso</li>
+                <li>► ¡Apacigua a las yeguas con la melodía correcta!</li>
+            </ul>
+            <button id="start-game-btn">¡Comenzar Juego!</button> <!-- Botón para iniciar el juego -->
+        </div> 
+    </div>
+
+    <!-- Juego (oculto inicialmente) -->
+    <div class="game-container" style="display: none;">
+        <h1>Apacigua a las yeguas</h1> <!-- Título del juego -->
+    
+        <div class="timer" id="timer">02:00</div> <!-- Temporizador del juego -->
+        
+        <div class="message" id="message">Presiona cualquier nota para comenzar</div> <!-- Mensaje al jugador -->
+        
+        <!-- Barra de progreso para mostrar el avance en la secuencia -->
+        <div class="progress-container">
+            <div class="progress-bar" id="progress"></div>
+        </div>
+
+        <!-- Contenedor de la imagen dinámica -->
+        <div class="image-container">
+            <img id="yeguas-image" src="images/yeguas-nerviosas.png" alt="Estado de las yeguas">
+        </div>
+        
+        <!-- Botones de las notas musicales -->
+        <div class="notes-container">
+            <!-- Primera fila de botones -->
+            <div class="button-row">
+                <button class="note-btn do" data-note="do">Do</button>
+                <button class="note-btn re" data-note="re">Re</button>
+                <button class="note-btn mi" data-note="mi">Mi</button>
+                <button class="note-btn fa" data-note="fa">Fa</button>
+            </div>
+            <!-- Segunda fila de botones -->
+            <div class="button-row">
+                <button class="note-btn sol" data-note="sol">Sol</button>
+                <button class="note-btn la" data-note="la">La</button>
+                <button class="note-btn si" data-note="si">Si</button>
+                <button class="note-btn do2" data-note="do2">Dó</button>
+            </div>
+        </div>
+        
+        <!-- Sonido que se reproduce al ganar -->
+        <audio id="victorySound" src="sounds/victoria.mp3" preload="auto"></audio>
+        <!-- Sonido que se reproduce al cometer un error -->
+        <audio id="errorSound" src="sounds/error.wav" preload="auto"></audio>
+    </div>
+    
+    <!-- Script principal que contiene la lógica del juego -->
+    <script src="scriptMusica.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html> <!-- Define el tipo de documento como HTML5 -->
+<html lang="es"> <!-- Inicia el documento HTML y establece el idioma a español -->
+<head>
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que el sitio sea responsive en dispositivos móviles -->
+    <title>Mitología en Acción</title> <!-- Título que aparecerá en la pestaña del navegador -->
+    <link rel="stylesheet" href="../styles.css"> <!-- Vincula el archivo CSS externo para los estilos -->
+    <link rel="icon" type="image/png" href="../img/favicon.png"> <!-- Define el favicon (icono de la pestaña del navegador) -->
+</head>
+    <body> <!-- Comienza el contenido visible de la página -->
+        <!-- Encabezado -->     
+        <header>
+        <a href="../index.html"> <!-- Enlace que lleva al inicio del sitio -->
+            <div class="logo"> <!-- Contenedor del logo -->
+                <img src="../img/logo.png" alt="Logo Mitología en Acción" class="logo-image"> <!-- Imagen del logo -->
+            </div>
+        </a>
+        
+        <nav><!-- Menú de navegación -->
+            <ul> <!-- Lista de enlaces -->
+                <li><a href="../index.html">Inicio</a></li> <!-- Enlace a la página de inicio -->
+                <li><a href="../elige_mitologia.html">Mitologías</a></li> <!-- Enlace a la página para elegir mitología -->
+                <li><a href="../inicia_aventura.html">Jugar</a></li> <!-- Enlace para comenzar la aventura -->
+                <li><a href="../sobre_proyecto.html">Sobre el proyecto</a></li> <!-- Enlace con información del proyecto -->
+            </ul>
+        </nav>
+        
+        <div class="search-bar"> <!-- Barra de búsqueda -->
+            <input type="text" id="search-input" placeholder="Buscar entre los dioses..." autocomplete="off"> <!-- Campo de entrada para buscar -->
+            <button id="search-button">🔍</button> <!-- Botón de búsqueda con icono -->
+            <div id="search-results" class="search-results"></div> <!-- Contenedor para mostrar los resultados de búsqueda -->
+        </div>
+        </header>
+        
+        <!-- Sección Hero -->
+        <section class="hero heracles-hero"> <!-- Sección principal con el fondo y mensaje principal -->
+        
+        <div class="hero-content">  <!-- Contenido de la sección hero -->
+            <h1>¡FRACASASTE!</h1> <!-- Título principal -->
+        </div>
+        </section>
+
+        <!-- Sección de opciones -->
+        <section class="heracles-section"> <!-- Sección que contiene los detalles sobre la derrota -->
+        <div class="heracles-card"> <!-- Tarjeta con detalles sobre la derrota -->
+            <h2 class="heracles-title">✧ La perseverancia forja la leyenda ✧</h2> <!-- Título motivacional -->
+    
+            <p class="heracles-text"> <!-- Párrafo explicando que el camino del héroe no es fácil -->
+                El camino del héroe nunca es fácil...
+            </p> 
+
+            <img src="../img/derrota.jpg" alt="Heracles en el suelo derrotado" class="heracles-image"> <!-- Imagen que muestra a Heracles derrotado -->
+
+            <p class="heracles-text">
+                Has luchado con valentía, enfrentado obstáculos con determinación y desafiado lo imposible. Sin embargo, hasta los más grandes héroes encuentran dificultades en su travesía.
+            </p>
+                
+            <p class="heracles-text">
+                Pero no es el fracaso lo que define a un verdadero héroe, sino su capacidad de levantarse y volver a intentarlo. Heracles no conquistó sus trabajos en un solo intento—su fuerza provenía de su perseverancia.
+            </p>
+
+            <p class="heracles-text">
+                Así que toma aire, afila tu ingenio y prepárate. La gloria te espera en la próxima batalla.
+            </p>
+            <p class="heracles-text">
+                <strong>¿Volverás a intentarlo?</strong>
+            </p>
+
+            <div class="intro-links">  <!-- Enlace para regresar al inicio -->          
+                <a href="../index.html" class="simple-link">Volver a inicio</a>
+            </div>
+    
+            
+        </div>
+        </div>
+        </section>               
+        <!-- Pie de página -->
+        <footer>
+        <p>Mitología en Acción - UOC 2025</p> <!-- Información del proyecto -->
+        <p>Creado por Esther Polo Fernández</p> <!-- Autora del proyecto -->
+        </footer>
+
+        <script src="../script.js"></script>
+        <script>
+    // Efecto de ceniza
+            document.addEventListener('DOMContentLoaded', function() {
+        const colors = ['#8c8c8c', '#a6a6a6', '#bfbfbf', '#d9d9d9']; // Colores para las partículas de ceniza
+        const body = document.body;
+        
+        // Crear partículas de ceniza
+        for (let i = 0; i < 100; i++) { // Bucle que se repite 100 veces para crear 100 partículas de ceniza
+            const ash = document.createElement('div'); // Crea un nuevo elemento 'div' para representar una partícula de ceniza
+            ash.style.position = 'fixed'; // Establece la posición del 'div' como fija, para que no se desplace con el scroll
+            ash.style.width = Math.random() * 5 + 1 + 'px'; // Asigna un tamaño aleatorio al ancho de la partícula (de 1px a 6px)
+            ash.style.height = ash.style.width; // El alto será igual al ancho para mantener la forma circular
+            ash.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)]; // Asigna un color aleatorio de la lista de colores
+            ash.style.borderRadius = '50%'; // Da una forma circular a la partícula
+            ash.style.left = Math.random() * 100 + 'vw'; // Posiciona la partícula aleatoriamente en el eje X (en un rango de 0 a 100% del ancho de la ventana)
+            ash.style.top = Math.random() * 100 + 'vh'; // Posiciona la partícula aleatoriamente en el eje Y (en un rango de 0 a 100% del alto de la ventana)
+            ash.style.opacity = Math.random() * 0.7 + 0.3; // Asigna una opacidad aleatoria entre 0.3 y 1 para que las partículas sean semi-transparentes
+            ash.style.zIndex = '9999'; // Asegura que las partículas estén por encima de otros elementos en la página
+            ash.style.pointerEvents = 'none'; // Evita que las partículas interactúen con el ratón (no bloquean la interacción con otros elementos)
+            
+            // Animación de caída
+            const animation = ash.animate([
+                { transform: 'translateY(0)', opacity: ash.style.opacity },
+                { transform: 'translateY(' + (Math.random() * 200 + 100) + 'px)', opacity: 0 }
+            ], {
+                duration: Math.random() * 3000 + 2000, // Duración aleatoria de la animación
+                iterations: Infinity, // La animación se repite infinitamente
+                delay: Math.random() * 5000 // Retraso aleatorio antes de empezar la animación
+            });
+            
+            body.appendChild(ash); // Añade la partícula al cuerpo del documento
+        }
+    });
+        </script>
+        <script src="../search.js"></script>
+    </body>
+</html>

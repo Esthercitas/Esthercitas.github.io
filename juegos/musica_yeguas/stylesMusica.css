@@ -1,0 +1,304 @@
+@font-face { 
+    font-family: "Trajan Pro"; /* Nombre de la fuente personalizada */
+    src: url("../../fonts/trajan-pro-regular.ttf") format("truetype"); /* Ruta a la fuente */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Palatino Linotype";
+    src: url("../../fonts/palatino-linotype.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;/* Tipografía preferida */
+    background-color: #f4e9d8; /* Color de fondo base */
+    display: flex; /* Usar flexbox para alinear contenido */
+    justify-content: center; /* Centrar contenido horizontalmente */
+    align-items: flex-start; /* Alinear contenido al inicio verticalmente */
+    min-height: 100vh; /* Altura mínima igual al alto de la pantalla */
+    padding: 20px; /* Espacio interno */
+    margin: 0; /* Sin márgenes externos */
+    overflow-x: hidden; /* Oculta el scroll horizontal */
+    background-image: url('images/fondo.jpg'); /* Imagen de fondo */
+    background-size: cover; /* Ajustar imagen al contenedor */
+    background-position: center; /* Centrar imagen de fondo */
+}
+
+/* Modal de instrucciones */
+.modal {
+    position: fixed; /* Posición fija para ocupar toda la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Encima de todo */
+    animation: fadeIn 0.5s ease-out; /* Efecto de entrada */
+}
+
+.modal-content {
+    background-color: #f4e9d8;
+    padding: 25px;
+    border-radius: 15px;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(139, 107, 61, 0.6);
+    border: 3px solid #8b6b3d;
+}
+
+.modal h2 {
+    color: #a0151c;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.modal ul {
+    text-align: left;
+    margin: 25px 0;
+    padding-left: 20px;
+    list-style-type: none; /* Sin viñetas */
+}
+
+.modal li {
+    margin-bottom: 12px;
+    color: #5d4a2e;
+    font-size: 18px;
+    position: relative;
+}
+
+/* Botón para comenzar el juego */
+#start-game-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+#start-game-btn:hover {
+    background-color: #3e8e41;
+    transform: scale(1.05); /* Agranda el botón al pasar el cursor */
+}
+
+/* Juego */
+.game-container {
+    background-color: #fdf8ee;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: center;
+    border: 3px solid #8b6b3d;
+}
+
+/* Título principal */
+h1 {
+    color: #5d3a00;
+    margin-top: 10px;
+    font-size: 2rem;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+}
+
+/* Temporizador */
+.timer {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #8b0000;
+    margin-bottom: 20px;    
+    padding: 1px 20px;    
+}
+
+/* Contenedor de botones de notas musicales */
+.notes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.button-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Botones de nota musical */
+.note-btn {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.note-btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.note-btn:active {
+    transform: scale(0.95);
+}
+
+/* Colores para cada nota */
+.note-btn.do { background-color: #b22222; }
+.note-btn.re { background-color: #daa520; }
+.note-btn.mi { background-color: #ffd700; }
+.note-btn.fa { background-color: #228b22; }
+.note-btn.sol { background-color: #4169e1; }
+.note-btn.la { background-color: #4b0082; }
+.note-btn.si { background-color: #9932cc; }
+.note-btn.do2 { background-color: #b22222; }
+
+.note-btn.active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Barra de progreso */
+.progress-container {
+    width: 100%;
+    max-width: 500px;
+    background-color: #ecf0f1;
+    border-radius: 10px;
+    margin: 0 auto 20px;
+    overflow: hidden;
+    border: 2px solid #3a2c1a;
+}
+
+.progress-bar {
+    height: 20px;
+    background-color: #228b22;
+    width: 0%; /* Se actualizará dinámicamente */
+    transition: width 0.3s;
+}
+
+/* Mensaje informativo */
+.message {
+    font-size: 18px;
+    font-weight: bold;
+    color: #3a2c1a;
+    margin-bottom: 20px;
+    min-height: 36px;
+    text-align: center;
+    background-color: rgba(255, 248, 240, 0.8);
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 2px solid #8b5a2b;
+}
+
+/* Contenedor de imagen */
+.image-container {
+    margin: 20px auto;
+    max-width: 150px;
+    text-align: center;
+}
+
+#yeguas-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 3px solid #8b6b3d;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.5s ease;
+}
+
+/* Efectos de transición */
+.fade-out {
+    animation: fadeOut 0.5s forwards;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s forwards;
+}
+
+/* Animación de desvanecimiento */
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Mensajes de victoria/derrota */
+.victory {
+    color: #006400;
+    animation: pulse 1s infinite;
+    font-size: 2em;
+    text-decoration: none;
+    display: block;
+    margin: 20px 0;
+}
+
+.defeat {
+    color: #8b0000;
+    animation: shake 0.5s;
+    font-size: 2em;
+    text-decoration: none;
+    display: block;
+    margin: 20px 0;
+}
+
+/* Animaciones */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        padding: 15px;
+    }
+    
+    .modal li {
+        font-size: 16px;
+    }
+    
+    .note-btn {
+        width: 70px;
+        height: 70px;
+        font-size: 16px;
+    }
+    
+    h1 {
+        font-size: 1.8em;
+    }
+    
+    .timer {
+        font-size: 1.5em;
+    }
+}

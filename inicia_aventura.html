@@ -1,0 +1,105 @@
+<!DOCTYPE html> <!-- Define el tipo de documento como HTML5 -->
+<html lang="es"> <!-- Inicia el documento HTML y establece el idioma a español -->
+<head>
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que el sitio sea responsive en dispositivos móviles -->
+    <title>Mitología en Acción</title> <!-- Título que aparecerá en la pestaña del navegador -->
+    <link rel="stylesheet" href="styles.css"> <!-- Vincula el archivo CSS externo para los estilos -->
+    <link rel="icon" type="image/png" href="img/favicon.png"> <!-- Define el favicon (icono de la pestaña del navegador) -->
+</head>
+<body> <!-- Comienza el contenido visible de la página -->
+    <!-- Encabezado -->     
+    <header>
+        <a href="index.html"> <!-- Enlace que lleva al inicio del sitio -->
+            <div class="logo"> <!-- Contenedor del logo -->
+                
+                <img src="img/logo.png" alt="Logo Mitología en Acción" class="logo-image"> <!-- Imagen del logo -->
+            </div>
+        </a>
+        
+        <nav>  <!-- Menú de navegación --> 
+            <ul> <!-- Lista de enlaces -->
+                <li><a href="index.html">Inicio</a></li> <!-- Enlace a la página de inicio -->
+                <li><a href="elige_mitologia.html">Mitologías</a></li> <!-- Enlace a la página para elegir mitología -->
+                <li><a href="inicia_aventura.html">Jugar</a></li> <!-- Enlace para comenzar la aventura -->
+                <li><a href="sobre_proyecto.html">Sobre el proyecto</a></li> <!-- Enlace con información del proyecto -->
+            </ul>
+        </nav>
+        
+        <div class="search-bar"> <!-- Barra de búsqueda -->
+            <input type="text" id="search-input" placeholder="Buscar entre los dioses..." autocomplete="off"> <!-- Campo de entrada para buscar -->
+            <button id="search-button">🔍</button> <!-- Botón de búsqueda con icono -->
+            <div id="search-results" class="search-results"></div> <!-- Contenedor para mostrar los resultados de búsqueda -->
+        </div>
+    </header>
+    
+    <!-- Sección Hero -->
+    
+    <section class="hero mitologia-hero"> <!-- Sección principal de bienvenida -->
+        
+        <div class="hero-content">
+            <h1>Inicia tu aventura</h1> <!-- Título de bienvenida -->
+        </div>
+    </section>
+    
+    <!-- Sección de opciones -->
+    <section class="aventura-options"> <!-- Contenedor de las opciones de aventura -->
+
+        <div class="aventura-option-card"> <!-- Tarjeta de opción para los trabajos de Heracles -->
+          <a href="trabajos_heracles.html" class="aventura-option-link">  <!-- Enlace a la página de los trabajos de Heracles -->
+            <img src="img/heracles.jpg" alt="Los 12 trabajos de Heracles" class="aventura-option-image"> <!-- Imagen de los trabajos de Heracles -->
+            <div class="aventura-option-title">12 trabajos de Heracles</div> <!-- Título de la opción -->
+          </a>
+        </div> 
+      
+    <!-- Otras tarjetas de opciones para diferentes aventuras mitológicas -->
+
+        <div class="aventura-option-card">
+          <a href="sobre_proyecto_actualizaciones.html" class="aventura-option-link">
+            <img src="img/perseo.jpg" alt="El viaje de Perseo" class="aventura-option-image">
+            <div class="aventura-option-title">El viaje de Perseo               
+              <span class="proximamente">— Próximamente</span>  <!-- Indicador de que esta aventura estará disponible más adelante -->
+            </div>
+          </a> 
+        </div>
+      
+        <div class="aventura-option-card">
+          <a href="sobre_proyecto_actualizaciones.html" class="aventura-option-link">
+            <img src="img/ulises.jpg" alt="La odisea de Ulises" class="aventura-option-image">
+            <div class="aventura-option-title">La odisea de Ulises
+              <span class="proximamente">— Próximamente</span>
+            </div>            
+          </a>
+        </div>
+      
+        <div class="aventura-option-card">
+          <a href="sobre_proyecto_actualizaciones.html" class="aventura-option-link">
+            <img src="img/orfeo.jpg" alt="Orfeo en el inframundo" class="aventura-option-image">
+            <div class="aventura-option-title">Orfeo en el inframundo
+              <span class="proximamente">— Próximamente</span>
+            </div>            
+          </a>
+        </div>
+      
+        <div class="aventura-option-card">
+          <a href="sobre_proyecto_actualizaciones.html" class="aventura-option-link">
+            <img src="img/atalanta.jpg" alt="La carrera de Atalanta" class="aventura-option-image">
+            <div class="aventura-option-title">La carrera de Atalanta
+              <span class="proximamente">— Próximamente</span>
+            </div>            
+          </a>
+        </div>
+      
+      </section>
+      
+    
+    <!-- Pie de página -->
+    <footer> <!-- Sección de pie de página -->
+        <p>Mitología en Acción - UOC 2025</p> <!-- Información del proyecto -->
+        <p>Creado por Esther Polo Fernández</p> <!-- Autora del proyecto -->
+    </footer>
+    
+    <script src="script.js"></script> <!-- Script principal del sitio -->
+    <script src="search.js"></script> <!-- Script específico para la función de búsqueda -->
+</body>
+</html> 

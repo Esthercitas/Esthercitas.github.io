@@ -1,0 +1,50 @@
+<!DOCTYPE html> <!-- Define el tipo de documento como HTML5 -->
+<html lang="es"> <!-- Inicia el documento HTML y establece el idioma a español -->
+<head>
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que el sitio sea responsive en dispositivos móviles -->
+    <title>Heracles y la Cierva de Cerinea</title> <!-- Título que aparecerá en la pestaña del navegador -->
+    <link rel="stylesheet" href="stylesCierva.css"> <!-- Vincula el archivo CSS externo para los estilos -->
+    <link rel="icon" type="image/png" href="../../img/favicon.png"> <!-- Define el favicon (icono de la pestaña del navegador) -->
+</head>
+<body>
+    <!-- Modal de instrucciones -->
+    <div id="instructions-modal" class="modal">
+        <div class="modal-content">
+            <h2>🏹 Heracles y la Cierva de Cerinea 🏹</h2>
+            <ul>
+                <li>► Usa <strong>WASD o flechas</strong> para mover a Heracles</li>
+                <li>► Atrapa a la <strong>Cierva 5 veces</strong> antes de que se acabe el tiempo</li>
+                <li>► Cuidado con los <strong>obstáculos</strong> y tu energía</li>
+                <li>► La cierva se volverá <strong>más rápida</strong> cada 3 capturas</li>
+                <li>► Si tu energía llega a cero, deberás esperar 3 segundos</li>
+            </ul>
+            <button id="start-game-btn">¡Comenzar Aventura!</button> <!-- Botón para iniciar el juego -->
+        </div>
+    </div>
+
+    <!-- Juego (oculto inicialmente) -->
+    <div class="game-container">
+        <h1>Heracles y la Cierva de Cerinea</h1>
+
+        <!-- Barra de energía del jugador -->
+        <div id="stamina-bar-container">
+            <div id="stamina-bar"></div> <!-- Indicador gráfico de energía -->
+            <span id="stamina-text">Energía: 100%</span> <!-- Texto que muestra el valor numérico -->
+        </div>
+
+        <!-- Indicador de capturas y tiempo restante -->
+        <p id="counter">Capturas: 0/5 | Tiempo: 60s</p>
+
+        <!-- Zona donde se desarrollará el juego -->
+        <div id="game-board">
+            <!-- Personajes y obstáculos se generan con JavaScript -->
+        </div>
+        <!-- Mensaje motivacional o informativo durante el juego -->
+        <p id="message">¡Persigue a la cierva sagrada!</p>
+    </div>
+
+    <!-- Script de JavaScript que contiene la lógica del juego -->
+    <script src="scriptCierva.js"></script>
+</body>
+</html>

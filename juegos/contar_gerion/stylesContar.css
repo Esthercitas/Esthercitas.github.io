@@ -1,0 +1,226 @@
+@font-face {
+    font-family: "Trajan Pro"; /* Nombre de la fuente personalizada */
+    src: url("../../fonts/trajan-pro-regular.ttf") format("truetype"); /* Ruta a la fuente */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Palatino Linotype";
+    src: url("../../fonts/palatino-linotype.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal; 
+}
+
+/* ============ [ ESTILOS GENERALES ] ============ */
+body {
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; /* Fuente principal y alternativas */
+  background-color: #f4e9d8; /* Color de fondo */
+  color: #5d4a2e; /* Color principal del texto */
+  text-align: center; /* Centra el texto */
+  margin: 0; /* Elimina el margen por defecto */  
+  min-height: 100vh; /* Altura mínima para ocupar toda la ventana */
+  display: flex; /* Usa flexbox para disposición vertical */
+  flex-direction: column; /* Apila los elementos verticalmente */
+  align-items: center; /* Centra horizontalmente los elementos hijos */
+}
+
+/* ============ [ MODAL DE INSTRUCCIONES ] ============ */
+.modal {
+  position: fixed; /* Fijo en pantalla */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Superposición máxima */
+  animation: fadeIn 0.5s ease-out; /* Aparece suavemente */
+}
+
+.modal-content {
+  background-color: #f4e9d8;
+  padding: 25px;
+  border-radius: 15px; /* Bordes redondeados */
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(139, 107, 61, 0.6); /* Sombra externa */
+  border: 3px solid #8b6b3d; /* Borde sólido */
+}
+
+.modal h2 {
+  color: #a0151c;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.modal ul {
+  text-align: left;
+  margin: 25px 0;
+  padding-left: 20px;
+  list-style-type: none; /* Elimina viñetas */
+}
+
+.modal li {
+  margin-bottom: 12px;
+  color: #5d4a2e;
+  font-size: 18px;
+  position: relative; /* Necesario para pseudo-elementos */
+}
+
+.modal li:before {
+  position: absolute;
+  left: -20px;
+  color: #a0151c;
+}
+
+/* ============ [ JUEGO PRINCIPAL ] ============ */
+#juego {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  margin: 5px auto;
+  border: 3px solid #8b6b3d;
+  background-color: #fdf8ee;
+  border-radius: 10px;
+  overflow: hidden; /* Oculta contenido fuera del área */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.elemento-imagen {
+  position: absolute; /* Para poder mover las imágenes libremente */
+  width: 60px;
+  height: 60px;
+  transition: transform 0.2s, opacity 0.2s; /* Animación suave al cambiar */
+  object-fit: cover; /* Ajuste proporcional de la imagen */
+}
+
+.elemento-imagen:hover {
+  transform: scale(1.5); /* Aumenta el tamaño al pasar el mouse */
+  z-index: 100; /* Superpone sobre otros elementos */
+}
+
+/* ============ [ BOTONES ] ============ */
+button {
+  background-color: #8b6b3d;
+  color: #f4e9d8;
+  border: none;
+  padding: 12px 25px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Palatino Linotype', serif;
+  font-weight: bold;
+  margin: 10px;
+}
+
+button:hover {
+  background-color: #5d4a2e;
+  transform: translateY(-3px); /* Levanta ligeramente el botón */
+}
+
+/* Botón especial para iniciar el juego */
+#start-game-btn {
+  background-color: #4CAF50 !important;
+  color: white !important;
+}
+
+#start-game-btn:hover {
+  background-color: #3e8e41 !important;
+}
+
+/* ============ [ TEXTO Y CONTENEDORES ] ============ */
+h1 {
+  color: #a0151c;
+  font-size: 2.2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Sombra ligera */
+  margin-bottom: 20px;  
+}
+
+#transicion {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #8b6b3d;  
+  height: 2em;
+  opacity: 0;
+  transition: opacity 1s; /* Desvanecimiento */
+}
+
+#pregunta {
+  display: none; /* Se muestra tras la ronda */
+  margin-top: 5px;
+}
+
+#resultado {
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin: 5px 0;
+}
+
+input[type="number"] {
+  width: 60px;
+  font-size: 1.2rem;
+  padding: 8px;
+  border: 2px solid #8b6b3d;
+  border-radius: 5px;
+  text-align: center;
+  font-family: 'Palatino Linotype', serif;
+}
+
+/* ============ [ MENSAJES FINALES ] ============ */
+#mensaje-final {
+  margin: 15px 0;
+  font-size: 1.2rem;
+}
+
+#mensaje-final a {
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+/* ============ [ ANIMACIONES ] ============ */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Clases que se activan según la respuesta */
+.correcto {
+  animation: pulse 0.5s; /* Se agranda brevemente */
+}
+
+.incorrecto {
+  animation: shake 0.5s; /* Tiembla lateralmente */
+}
+
+/* ============ [ RESPONSIVE ] ============ */
+@media (max-width: 768px) {
+  #juego {
+    width: 90%;
+    height: 300px;
+  }
+  
+  .modal-content {
+    width: 90%;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+}

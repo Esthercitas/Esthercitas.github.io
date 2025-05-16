@@ -1,0 +1,336 @@
+@font-face {
+    font-family: "Trajan Pro"; /* Nombre de la fuente personalizada */
+    src: url("../../fonts/trajan-pro-regular.ttf") format("truetype"); /* Ruta a la fuente */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Palatino Linotype";
+    src: url("../../fonts/palatino-linotype.ttf") format("truetype"); /* Prioridad de tipografías */
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Estilos generales */
+body {
+  margin: 0;
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  background-color:#f4e9d8; /* Color de fondo */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Altura mínima de pantalla completa */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Modal de instrucciones */
+.modal {
+    position: fixed; /* Fijo en pantalla */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Encima de todo */
+    animation: fadeIn 0.5s ease-out; /* Animación de aparición */
+}
+
+.modal-content {
+    background-color: #f4e9d8;
+    padding: 25px;
+    border-radius: 15px;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(139, 107, 61, 0.6);
+    border: 3px solid #8b6b3d;
+}
+
+/* Título del modal */
+.modal h2 {
+    color: #a0151c;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+/* Lista de instrucciones */
+.modal ul {
+    text-align: left;
+    margin: 25px 0;
+    padding-left: 20px;
+    list-style-type: none;
+}
+
+.modal li {
+    margin-bottom: 12px;
+    color: #5d4a2e;
+    font-size: 18px;
+    position: relative;
+}
+
+/* Botón para iniciar el juego */
+#start-game-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+#start-game-btn:hover {
+    background-color: #3e8e41;
+    transform: scale(1.05);
+}
+
+/* Título del juego */
+#titulo {
+  margin-bottom: 20px;
+  font-size: 2.5em;
+  color: #5d4a2e;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  display: none; /* Oculto inicialmente */
+}
+
+/* Contenedores */
+#contadores, #juego, #botones {
+  display: none; /* Ocultos inicialmente */
+}
+
+#contadores {
+  justify-content: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 15px;
+}
+
+/* Tarjetas informativas del juego */
+#puntos, #temporizador, #nivel {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 1.2em;
+  font-weight: bold;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  min-width: 140px;
+  text-align: center;
+  color: #333;
+}
+
+/* Área de juego */
+#juego {
+  position: relative;
+  width: 90%;
+  max-width: 600px;
+  height: 400px;
+  background-image: url('images/dia.jpg'); /* Imagen de fondo */
+  background-size: cover;
+  border: 3px solid #8b6b3d; 
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* objetivos */
+.circulo {
+  position: absolute;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  image-rendering: crisp-edges;
+}
+
+/* Tamaños diferentes según el tipo */
+.circulo.rojo, .circulo.azul {
+  width: 60px;
+  height: 60px;
+}
+
+.circulo.dorado {
+  width: 70px;
+  height: 70px;
+}
+
+/* Sombras de colores */
+.circulo.rojo {
+  filter: drop-shadow(0 0 10px rgba(255, 50, 50, 0.8));
+}
+
+.circulo.azul {
+  filter: drop-shadow(0 0 10px rgba(50, 50, 255, 0.8));
+}
+
+.circulo.dorado {
+  filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.9));
+}
+
+/* Aumenta el tamaño al pasar el cursor */
+.circulo:hover {
+  transform: scale(1.1);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes brilloDorado {
+  from { filter: drop-shadow(0 0 10px gold) brightness(1.1); }
+  to { filter: drop-shadow(0 0 20px gold) brightness(1.3); }
+}
+
+@keyframes pulsacion {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
+
+/* Animaciones aplicadas a elementos concretos */
+.circulo.dorado {
+  animation: brilloDorado 0.8s infinite alternate;
+}
+
+.nivel-alto {
+  animation: pulsacion 0.5s infinite alternate;
+}
+
+/* Clase para ocultar elementos con efecto */
+.desaparecer {
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Mensaje final */
+#mensaje-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  text-align: center;
+}
+
+.mensaje-final {
+  font-size: 2.5em;
+  font-weight: bold;
+  padding: 15px 30px;
+  border-radius: 10px;
+  display: inline-block;
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Efecto al pasar el cursor sobre el mensaje final */
+.mensaje-final:hover {
+  transform: scale(1.05);
+}
+
+/* Estilos diferentes según el resultado */
+.victoria {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.derrota {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Botones generales */
+#botones {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+button {
+  padding: 12px 30px;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Botón de iniciar juego */
+#iniciar {
+  background-color: #4CAF50;
+}
+
+#iniciar:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+/* Botón de reiniciar juego */
+#reiniciar {
+  background-color: #f44336;
+  display: none;
+}
+
+#reiniciar:hover {
+  background-color: #d32f2f;
+  transform: translateY(-2px);
+}
+
+/* Estado desactivado del botón reiniciar */
+#reiniciar:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  #contadores {
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+  }
+
+  #titulo {
+      font-size: 1.8em;
+  }
+
+  #juego {
+      height: 300px;
+  }
+
+  .circulo.rojo, .circulo.azul {
+      width: 50px;
+      height: 50px;
+  }
+
+  .circulo.dorado {
+      width: 60px;
+      height: 60px;
+  }
+
+  .mensaje-final {
+      font-size: 2em;
+      padding: 10px 20px;
+  }
+
+  button {
+      padding: 10px 20px;
+      font-size: 1em;
+  }
+}

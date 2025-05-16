@@ -1,0 +1,85 @@
+<!DOCTYPE html> <!-- Define el tipo de documento como HTML5 -->
+<html lang="es"> <!-- Inicia el documento HTML y establece el idioma a español -->
+<head>
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que el sitio sea responsive en dispositivos móviles -->
+    <title>Mitología en Acción</title> <!-- Título que aparecerá en la pestaña del navegador -->
+    <link rel="stylesheet" href="../styles.css"> <!-- Vincula el archivo CSS externo para los estilos -->
+    <link rel="icon" type="image/png" href="../img/favicon.png"> <!-- Define el favicon (icono de la pestaña del navegador) -->
+</head>
+<body> <!-- Comienza el contenido visible de la página -->
+    <!-- Encabezado -->     
+    <header>
+        <a href="../index.html"> <!-- Enlace que lleva al inicio del sitio -->
+            <div class="logo"> <!-- Contenedor del logo -->
+                <img src="../img/logo.png" alt="Logo Mitología en Acción" class="logo-image"> <!-- Imagen del logo -->
+            </div>
+        </a>
+        
+        <nav><!-- Menú de navegación -->
+            <ul> <!-- Lista de enlaces -->
+                <li><a href="../index.html">Inicio</a></li> <!-- Enlace a la página de inicio -->
+                <li><a href="../elige_mitologia.html">Mitologías</a></li> <!-- Enlace a la página para elegir mitología -->
+                <li><a href="../inicia_aventura.html">Jugar</a></li> <!-- Enlace para comenzar la aventura -->
+                <li><a href="../sobre_proyecto.html">Sobre el proyecto</a></li> <!-- Enlace con información del proyecto -->
+            </ul>
+        </nav>
+        
+        <div class="search-bar"> <!-- Barra de búsqueda -->
+            <input type="text" id="search-input" placeholder="Buscar entre los dioses..." autocomplete="off"> <!-- Campo de entrada para buscar -->
+            <button id="search-button">🔍</button> <!-- Botón de búsqueda con icono -->
+            <div id="search-results" class="search-results"></div> <!-- Contenedor para mostrar los resultados de búsqueda -->
+        </div>
+    </header>
+    
+    <!-- Sección Hero -->
+    <section class="hero heracles-hero">
+        
+        <div class="hero-content">
+            <h1>Primer trabajo</h1>
+        </div>
+    </section>
+    
+    <!-- Sección de opciones -->
+    <section class="heracles-section">
+        <div class="heracles-card">
+            <h2 class="heracles-title">Matar al león de Nemea</h2> <!-- Título de la opción --> 
+    
+            <p class="heracles-text"> <!-- Descripción narrativa del desafío -->
+                El sol se hunde tras las montañas de Argólida, tiñendo el cielo de un rojo profundo, como la sangre que ha empapado esta tierra maldita. Ante ti se extiende el valle de Nemea, un lugar donde el viento susurra nombres olvidados y las sombras parecen moverse con vida propia. Hace semanas que el León, una bestia nacida de la luna y alimentada por la furia de los dioses, aterroriza a los mortales. Sus garras destrozan escudos como si fueran hojas secas; su piel, más dura que el acero, ha rechazado todas las flechas, espadas y lanzas jamás lanzadas contra él. Los aldeanos hablan en voz baja de cómo devora a los guerreros enteros, sin dejar ni los huesos.
+            </p> 
+            <p class="heracles-text">  
+                Pero tú no eres un guerrero cualquiera.
+            </p> 
+            <p class="heracles-text">
+                El oráculo te ha elegido. Los dioses observan en silencio, esperando ver si su fe en ti está bien depositada. En tus venas corre el mismo fuego que una vez impulsó a tantos héroes, y aunque su sombra es larga, tu destino aún está por escribirse. La entrada de la guarida del León se abre ante ti como las fauces de un monstruo, oscura y húmeda, con un olor a carne podrida que te hace contener el aliento. En el interior, algo respira. Algo grande. Algo que ya sabe que estás aquí.
+            </p> 
+            <p class="heracles-text">
+                ¿Qué harás?  <!-- Pregunta abierta que invita a la acción del jugador -->
+            </p>                   
+
+            <img src="../img/trabajo01.jpg" alt="Heracles con piel de león" class="heracles-image"> <!-- Imagen descriptiva del trabajo -->
+    
+            <!-- Opciones de enlaces con decisiones -->
+            <div class="heracles-links-trabajo5">                
+                <a href="../juegos/combate/indexcombate.html" class="simple-link">"¡Por los dioses del Olimpo, enfrentaré a esta bestia con mis manos!" Decides confiar en tu fuerza divina.</a>
+            </div>
+            <div class="heracles-links-trabajo5">                
+                <a href="trabajo02.html" class="simple-link">"No... esto es una locura." No es cobardía, es instinto de supervivencia.</a> <!-- Enlace a una opción de huir -->
+            </div>
+            <div class="heracles-links-trabajo5">                
+                <a href="../juegos/puzzle_deslizante/indexDeslizante.html" class="simple-link">"La fuerza bruta no siempre gana batallas." Observas el terreno con ojos estratégicos.</a>
+            </div>
+            
+        </div>
+        </div>
+    </section>               
+    <!-- Pie de página --> 
+    <footer>
+        <p>Mitología en Acción - UOC 2025</p> <!-- Información del proyecto -->
+        <p>Creado por Esther Polo Fernández</p> <!-- Autora del proyecto -->
+    </footer>
+    
+    <script src="../search.js"></script>
+</body>
+</html>

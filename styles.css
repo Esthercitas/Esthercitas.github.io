@@ -1,0 +1,784 @@
+@font-face {
+  font-family: "Trajan Pro";
+  src: url("../fonts/trajan-pro-regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Palatino Linotype";
+  src: url("../fonts/palatino-linotype.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* Estilos generales */
+
+* {
+    margin: 0; /* Elimina los márgenes por defecto */
+    padding: 0; /* Elimina el relleno por defecto */
+    box-sizing: border-box; /* Incluye el borde y el relleno en el cálculo del ancho/alto */
+}
+
+body {
+    background-color: #f4e9d8;  /* Color de fondo */  
+    color: #3a3226; /* Color de texto oscuro */
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    line-height: 1.6; /* Altura entre líneas para mejor legibilidad */
+}
+
+/* Encabezado estilo antiguo */
+
+header {
+    background-color: #2c2416; /* Fondo para el encabezado */    
+    color: #e4d4a3; /* Color para el texto del encabezado */
+    padding: 1rem 2rem; /* Espaciado interior */
+    display: flex; /* Diseño en línea flexible */
+    justify-content: space-between; /* Espacio entre los elementos */
+    align-items: center; /* Alineación vertical centrada */
+    border-bottom: 4px solid #8b6b3d; /* Borde inferior decorativo */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra para dar profundidad */
+}
+
+.logo { 
+    display: flex; /* Agrupa la imagen y el texto de logo en una línea */
+    align-items: center; /* Centrado vertical */
+}
+
+.logo-image {
+    width: 100px; /* Ancho fijo para la imagen del logo */
+    height: auto; /* Mantiene la relación de aspecto */
+}
+
+nav ul {
+    display: flex; /* Elementos del menú en línea */ 
+    list-style: none; /* Sin viñetas */
+}
+
+nav ul li {
+    margin-left: 2rem; /* Separación entre los elementos del menú */
+    position: relative; /* Necesario para posicionamientos internos */
+}
+
+nav ul li a {
+    color: #e4d4a3; /* Color de los enlaces */
+    text-decoration: none; /* Sin subrayado */
+    font-size: 1.1rem; /* Tamaño de fuente */
+    transition: all 0.3s; /* Transición suave al hacer hover */
+    padding: 0.5rem; /* Espaciado interior */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+nav ul li a:hover {
+    color: #f8d56b; /* Color al pasar el ratón por encima */
+    background-color: rgba(139, 107, 61, 0.3); /* Fondo hover */
+}
+
+.search-bar {
+    display: flex; /* Coloca el input y el botón en línea */
+    align-items: center; /* Centrado vertical */
+}
+
+.search-bar input {
+    padding: 0.5rem; /* Espaciado interno */
+    border: 1px solid #8b6b3d;  /* Borde sutil */
+    border-radius: 4px 0 0 4px; /* Redondeo en las esquinas izquierdas */
+    background-color: #f4e9d8; /* Color de fondo del input */
+    color: #3a3226; /* Color del texto */
+    font-family: inherit; /* Usa la misma fuente que el cuerpo */
+}
+
+.search-bar button {
+    padding: 0.5rem 1rem; /* Espaciado del botón */
+    background-color: #8b6b3d; /* Color del fondo del botón */
+    color: #f4e9d8; /* Color del texto del botón */
+    border: none;  /* Sin borde */
+    border-radius: 0 4px 4px 0; /* Redondeo en las esquinas derechas */
+    cursor: pointer; /* Cursor de tipo mano al pasar por encima */
+    transition: background-color 0.3s; /* Transición suave al hacer hover */
+    font-family: inherit; /* Hereda fuente del contenedor */
+}
+
+.search-bar button:hover {
+    background-color: #6d532e; /* Cambio de color al hacer hover */
+}
+
+/* Hero Section estilo pergamino */
+
+.hero {
+    position: relative; /* Para elementos posicionados dentro */
+    height: 70vh; /* 70% de la altura de la ventana */
+    display: flex; /* Centrado del contenido */
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Centrado del texto */
+    color: #3a3226; /* Color del texto */
+    background-image: url('img/welcome-image.jpg'); /* Imagen de fondo */
+    background-size: cover; /* La imagen cubre toda la sección sin deformarse */
+    background-position: center; /* Centrada horizontal y verticalmente */
+    margin: 2rem; /* Margen exterior */
+    border-radius: 8px;  /* Bordes redondeados */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    border: 1px solid #c4b08a; /* Borde decorativo */
+    overflow: hidden; /* Oculta el contenido que sobresalga */
+}
+
+/* Versiones específicas del hero para distintas páginas o secciones */
+.libros-hero {
+  background-image: url('img/libro.jpg');  
+}
+
+.proyecto-hero {
+    background-image: url('img/proyecto.jpg');
+} 
+
+.mitologia-hero {
+    background-image: url('img/mitologia.jpg');
+}
+
+.heracles-hero {
+  background-image: url('img/12heracles.jpg');
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  height: 35vh !important; /* Altura fija y prioritaria */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.cerbero-hero {
+  background-image: url('img/el_cerbero.jpg');
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  height: 35vh !important; /* Altura fija y prioritaria */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+
+.heracles-hero .hero-content {
+  padding: 1rem 0; /* espacio interno */
+}
+
+/* Tarjetas de opciones */
+.option-card {
+  border-radius: 12px; /* Bordes redondeados */
+  overflow: hidden; /* Oculta el contenido que se salga */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+}
+
+.option-link {
+  display: block;
+  text-decoration: none;
+  color: inherit; /* Hereda el color del texto */
+}
+
+.option-card:hover {
+  transform: scale(1.03); /* Algo más grande al pasar el ratón */
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* Sombra al hacer hover */
+}
+
+.option-image {
+  width: 100%; /* Ocupa todo el ancho */
+  height: auto; /* Altura automática */
+  display: block; /* Comportamiento de bloque */
+  transition: transform 0.3s ease;
+}
+
+.option-title {
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  background-color: #f0e6d6;
+  transition: background-color 0.3s ease;
+}
+
+.option-title span {
+    font-size: 1.2rem;
+    color: #8b6b3d;
+    margin-top: 0.5rem;
+    font-style: italic;
+  }
+
+.option-card:hover .option-title {
+  background-color: #f0e6d6; /* color */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;    
+    z-index: 0;
+}
+
+/* Imagen de fondo dentro del hero */
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+/* Contenido del hero */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.hero-content h1 {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    color: #E1D4A2;
+    font-family: 'Trajan Pro', 'Times New Roman', serif;   
+    letter-spacing: 1px;
+    line-height: 1.2;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra del texto */
+}
+
+/* Sección de opciones estilo medallones */
+.options {
+    display: flex;
+    justify-content: center;
+    padding: 3rem 2rem;    
+}
+
+.option-card {
+    width: 45%;
+    margin: 0 1.5rem;
+    text-align: center;
+    background-color: #f4e9d8;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s, box-shadow 0.4s;
+    border: 2px solid #c4b08a;
+    position: relative;
+}
+
+.option-card p {
+    text-align: justify;    
+    margin-bottom: 1.5rem;
+    margin-right: 1.5em;
+    margin-left: 1.5rem;
+  }  
+
+.option-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: linear-gradient(90deg, #8b6b3d, #c4b08a, #8b6b3d);
+}
+
+.option-card:hover {
+    transform: translateY(-10px) scale(1.02); /* Sube y agranda al hacer hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25); /* Sombra más intensa */
+}
+
+.option-image {
+    width: 100%;
+    height: 300px;    
+    display: block;
+    object-fit: cover;
+    object-position: top;
+    filter: sepia(30%) brightness(90%);
+    transition: filter 0.4s;
+}
+
+.option-card:hover .option-image {
+    filter: sepia(10%) brightness(100%);
+}
+
+.option-title {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 1.8rem;
+    color: #5d4a2e;
+    font-family: 'Trajan Pro', 'Times New Roman', serif;
+    position: relative;
+}
+
+.option-title a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+.option-title a:hover {
+    color: #8b6b3d;
+    background-color: rgba(139, 107, 61, 0.1);
+}
+
+/* Pie de página */
+footer {
+    background-color: #2c2416;    
+    color: #e4d4a3;
+    text-align: center;
+    padding: 2rem;
+    font-size: 1rem;
+    border-top: 4px solid #8b6b3d;
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.5px;
+}
+
+/* Decoraciones mitológicas */
+.decoration {
+    position: absolute;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.olive-branch-left {
+    top: 50%;
+    left: 5%;
+    transform: rotate(-30deg);
+    width: 150px;
+}
+
+.olive-branch-right {
+    top: 50%;
+    right: 5%;
+    transform: rotate(30deg);
+    width: 150px;
+}
+
+/*Sobre el proyecto*/
+.intro-section {
+    display: flex;
+    justify-content: center;
+    padding: 3rem 1rem;
+  }
+  
+  .intro-card {
+    max-width: 900px;
+    background-color: #fdf8ee;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Georgia', serif;
+    color: #4a3b26;
+    line-height: 1.6;
+    font-size: 1.1rem;
+  }
+  
+  .intro-card p {
+    margin-bottom: 1.5rem;
+  }
+  
+  .intro-links {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .simple-link {
+    font-size: 1.1rem;
+    color: #5d4a2e;
+    background-color: #e4d4a3;
+    padding: 0.7rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .simple-link:hover {
+    background-color: #8b6b3d;
+    color: #f4e9d8;
+  }
+
+  .aventura-options {
+    display: flex;
+    flex-direction: column; /* los items se coloquen de arriba hacia abajo */
+    gap: 20px; /* Espacio entre cada tarjeta */
+  }
+  
+  .aventura-option-card {
+    width: 100%; /* Asegura que cada tarjeta ocupe todo el ancho disponible */
+  }
+  .hero.mitologia-hero {
+    position: relative;
+    background: url('img/mitologia.jpg') center/cover no-repeat;
+    height: 400px; /* Ajusta la altura según necesidades */
+  }
+  
+  .aventura-options {
+    display: flex;
+    flex-direction: column; /* Los elementos se muestran uno debajo del otro */
+    gap: 15px; /* Espacio entre cada tarjeta */
+    padding: 15px; /* Espacio interno alrededor de las tarjetas */
+    align-items: center; /* Centra las tarjetas horizontalmente */
+  }
+  
+  .aventura-option-card {
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    overflow: hidden; /* Para asegurar que las imágenes no sobresalgan */
+    width: 50%; /* Ancho reducido a la mitad del contenedor */
+    height: 190px; /* Altura reducida */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación para hover */
+    border: 2px solid #c4b08a;
+}
+  
+  .aventura-option-card:hover {
+    transform: translateY(-5px); /* Efecto de elevación al pasar el ratón */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Más sombra al hacer hover */
+  }
+  
+  .aventura-option-link {
+    display: block; /* Hace que el enlace ocupe toda la tarjeta */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    color: inherit; /* Hereda el color del texto del contenedor */
+    height: 100%; /* Asegura que el enlace ocupe toda la altura de la tarjeta */
+    background-color: #f4e9d8;
+}
+  
+  .aventura-option-image {
+    width: 100%; /* Hace que la imagen ocupe todo el ancho de la tarjeta */
+    height: 150px; /* Ajusta la altura de la imagen */
+    object-fit: cover; /* Asegura que la imagen se recorte adecuadamente */
+    object-position: top;
+}
+  
+  .aventura-option-title {
+    padding: 10px;
+    font-size: 16px; /* Tamaño de fuente más pequeño */
+    font-weight: bold; /* Negrita */
+    color: #8b6b3d; /* Color del texto */
+    text-align: center; /* Centra el texto */
+    background-color: #f4e9d8; /* Fondo claro para el título */
+    height: 10px; /* Altura más pequeña para el título */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .proximamente {
+    font-style: italic;
+    color: #8b6b3d;
+    font-size: 0.9em;
+    margin-left: 5px;
+  }
+  
+
+  .titulo-prologo {
+    font-size: 2em;
+    font-weight: 600;
+    color: #8b6b3d; 
+    margin-bottom: 1em;
+    
+  }
+  
+  .heracles-hero .hero-content h1 {
+    white-space: nowrap;
+    font-size: 5vw; /* Aumenta el tamaño del texto */
+    line-height: 1.2;
+    text-align: center;
+    margin-top: 20vh; /* Desplaza el título hacia abajo */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra del texto */
+}
+  
+.historias-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 40px;
+}
+
+.historia-card {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid #c4b08a;
+}
+
+.historia-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.historia-link {
+  text-decoration: none;
+  color: #5d4a2e;
+  display: block;
+}
+
+.historia-imagen {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.historia-titulo {
+  padding: 10px;
+  font-weight: bold;
+}
+
+.historia-titulo span {
+  display: block;
+  font-weight: normal;
+  font-size: 0.9em;
+  color: #888;
+}
+
+.heracles-section {
+  padding: 20px;
+  background-color: #f4e9d8; /* Fondo gris claro */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.heracles-card {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #fdf8ee; /* fondo blanco */
+  border-radius: 10px;      /* bordes redondeados */
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* sombra suave */
+  border: 1px solid #e0e0e0; /* borde sutil para dar definición */
+}
+
+
+.heracles-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #5d4a2e;
+  font-family: 'Trajan Pro', 'Times New Roman', serif;
+}
+
+.heracles-image {
+  width: 300px; /* Ajusta el tamaño según necesidades */
+  height: auto; /* Mantiene la proporción */
+  margin: 1.5rem auto;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.25);
+}
+
+.heracles-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 1.2rem;
+  text-align: justify;
+}
+
+.heracles-highlight {
+  color: #2316b4; /* Texto blanco */
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.heracles-divider {
+  border-top: 2px solid #34495e;
+  margin: 20px 0;
+}
+
+.heracles-links {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.heracles-backlink {
+  font-size: 1rem;
+  text-decoration: none;
+  color: #5a3d2b;
+  border: 1px solid #5a3d2b;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.heracles-backlink:hover {
+  background-color: #5a3d2b;
+  color: white;
+}
+
+.heracles-links-trabajo5 {
+  text-align: left;
+  margin: 10px 0;
+  padding-left: 10px;
+}
+
+.heracles-links-trabajo5 .simple-link {
+  display: inline-block;
+  line-height: 1,2; /* Aumenta el interlineado dentro del enlace si hay varias líneas */
+  margin-bottom: 10px; /* Espacio entre enlaces */
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+    
+    .logo {
+        margin-bottom: 1rem;
+        justify-content: center;
+    }
+    
+    nav ul {
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    nav ul li {
+        margin: 0.5rem;
+    }
+    
+    .search-bar {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .options {
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 1rem;
+    }
+    
+    .option-card {
+        width: 90%;
+        margin-bottom: 2rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 2.2rem;
+    }
+    
+    .hero {
+        height: 60vh;
+        margin: 1rem;
+    }
+}
+
+@media (max-width: 1024px) {
+  .historias-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .historias-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Estilos para la barra de búsqueda y resultados */
+.search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: #f4e9d8;
+    border: 1px solid #8b6b3d;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: none;
+}
+
+.search-result-item {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #c4b08a;
+    cursor: pointer;
+    color: #3a3226;
+    transition: background-color 0.3s;
+}
+
+.search-result-item:hover {
+    background-color: #e4d4a3;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-item h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: #5d4a2e;
+}
+
+.search-result-item p {
+    margin: 0.25rem 0 0;
+    font-size: 0.85rem;
+    color: #8b6b3d;
+}
+
+.no-results {
+    padding: 0.75rem 1rem;
+    color: #8b6b3d;
+    font-style: italic;
+}
+
+@media (max-width: 480px) {
+    /* Para pantallas muy pequeñas (como móviles) */
+    
+    /* Ajustamos aún más el texto y los elementos */
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .option-title {
+        font-size: 1.2rem;
+    }
+
+    footer p {
+        font-size: 0.9rem;
+    }
+
+    /* Tarjetas de opciones */
+    .option-card {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+}

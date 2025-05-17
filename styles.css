@@ -1,13 +1,13 @@
 @font-face {
   font-family: "Trajan Pro";
-  src: url("../fonts/trajan-pro-regular.ttf") format("truetype");
+  src: url("fonts/trajan-pro-regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Palatino Linotype";
-  src: url("../fonts/palatino-linotype.ttf") format("truetype");
+  src: url("fonts/palatino-linotype.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
